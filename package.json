@@ -7,7 +7,7 @@
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint",
-    "deploy": "next build && next export && cp CNAME out/CNAME && touch out/.nojekyll"
+    "deploy": "next build && copy CNAME out\\CNAME && type nul > out\\.nojekyll"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

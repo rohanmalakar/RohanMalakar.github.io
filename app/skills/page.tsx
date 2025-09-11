@@ -16,10 +16,8 @@ import {
   GitBranch,
   Cpu,
   MonitorSpeaker,
-  PaintBucket,
   CloudCog,
   BookOpen,
-  Calculator,
   Zap,
   Brain,
   Network,
@@ -351,7 +349,7 @@ const TechnicalExpertise: React.FC = () => {
               { label: 'Tools & Others', count: skillsData[2].skills.length, color: 'text-purple-600 dark:text-purple-400' },
               { label: 'Core Subjects', count: coreSubjects.length, color: 'text-orange-600 dark:text-orange-400' },
               { label: 'Total Items', count: skillsData.reduce((acc, cat) => acc + cat.skills.length, 0) + coreSubjects.length, color: 'text-gray-600 dark:text-gray-300' }
-            ].map((stat, index) => (
+            ].map((stat) => (
               <div key={stat.label} className="text-center p-4 sm:p-6 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl border border-gray-100 dark:border-gray-700">
                 <div className={`text-2xl sm:text-3xl lg:text-4xl font-bold ${stat.color} mb-1 sm:mb-2`}>
                   {stat.count}

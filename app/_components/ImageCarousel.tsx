@@ -74,7 +74,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
       document.addEventListener('keydown', handleKeyPress);
       return () => document.removeEventListener('keydown', handleKeyPress);
     }
-  }, [goToPrevious, goToNext, isFullscreen]);
+  }, [goToPrevious, goToNext, isFullscreen, togglePlayPause]);
 
   // Auto-play functionality
   useEffect(() => {

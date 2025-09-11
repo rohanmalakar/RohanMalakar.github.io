@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import React from "react"
 import ExperienceCard from "@/app/_components/ExperienceCard"
 const experienceData = [
   {

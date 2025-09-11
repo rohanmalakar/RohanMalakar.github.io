@@ -1,16 +1,16 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Phone, MapPin, Linkedin, Send, Clock, Globe } from 'lucide-react';
+import { motion, AnimatePresence, VariantLabels, TargetAndTransition } from 'framer-motion';
+import { Mail, Phone, MapPin, Linkedin, Send } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
 // TypeScript interfaces
 interface CardProps {
   children: React.ReactNode;
   className?: string;
-  whileHover?: any;
-  whileTap?: any;
+  whileHover?: VariantLabels | TargetAndTransition;
+  whileTap?: VariantLabels | TargetAndTransition;
 }
 
 interface InputFieldProps {
@@ -86,7 +86,6 @@ const InputField: React.FC<InputFieldProps> = ({
 );
 
 const ContactPage: React.FC = () => {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
   const [formState, setFormState] = useState<FormState>({
     fullName: '',
     emailAddress: '',
@@ -162,7 +161,7 @@ const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className={`min-h-screen ${isDarkMode ? 'dark bg-zinc-900 text-gray-100' : 'bg-gray-100 text-gray-900'} font-sans transition-colors duration-500 overflow-hidden relative`}>
+    <div className="min-h-screen bg-gray-100 dark:bg-zinc-900 text-gray-900 dark:text-gray-100 font-sans transition-colors duration-500 overflow-hidden relative">
       <div className="absolute inset-0 z-0">
         <motion.div
           className="w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 absolute top-0 left-0 animate-blob"
@@ -186,10 +185,10 @@ const ContactPage: React.FC = () => {
           className="text-center mb-12"
         >
           <h1 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 mb-4">
-            Let's Connect
+            Let&apos;s Connect
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Ready to collaborate on your next project? Let's discuss how we can work together to bring your ideas to life.
+            Ready to collaborate on your next project? Let&apos;s discuss how we can work together to bring your ideas to life.
           </p>
         </motion.div>
 
@@ -202,7 +201,7 @@ const ContactPage: React.FC = () => {
           >
             <h2 className="text-2xl font-bold">Get In Touch</h2>
             <p className="text-gray-600 dark:text-gray-300">
-              I'm always open to discussing new opportunities, innovative projects, and potential collaborations. Whether you have a project in mind or just want to connect, I'd love to hear from you.
+              I&apos;m always open to discussing new opportunities, innovative projects, and potential collaborations. Whether you have a project in mind or just want to connect, I&apos;d love to hear from you.
             </p>
             <div className="space-y-4">
               <Card whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>

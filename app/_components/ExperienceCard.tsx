@@ -1,6 +1,5 @@
 import React from 'react';
 import { Calendar, MapPin, CheckCircle, ExternalLink, Github, Globe } from 'lucide-react';
-import Image from 'next/image';
 import ImageCarousel from './ImageCarousel';
 
 interface Achievement {
