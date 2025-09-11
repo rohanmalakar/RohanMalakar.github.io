@@ -1,5 +1,4 @@
 'use client';
-
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, VariantLabels, TargetAndTransition } from 'framer-motion';
 import { Mail, Phone, MapPin, Linkedin, Send } from 'lucide-react';
