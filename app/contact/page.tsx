@@ -94,10 +94,9 @@ const ContactPage: React.FC = () => {
   const [submitMessage, setSubmitMessage] = useState<string>('');
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
-  // EmailJS configuration - Replace with your actual IDs
-  const EMAILJS_SERVICE_ID = 'service_xxxxxxx'; // Replace with your service ID
-  const EMAILJS_TEMPLATE_ID = 'template_xxxxxxx'; // Replace with your template ID
-  const EMAILJS_PUBLIC_KEY = 'your_public_key'; // Replace with your public key
+  const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string;
+  const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string;
+  const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string;
 
   // Initialize EmailJS
   useEffect(() => {
@@ -127,10 +126,11 @@ const ContactPage: React.FC = () => {
     try {
       // Prepare template parameters
       const templateParams = {
-        to_name: 'Tanishq', // Your name
-        from_name: formState.fullName,
-        from_email: formState.emailAddress,
-        subject: formState.subject || 'New Contact Form Message',
+        to_name: 'Rohan Malakar', 
+        name: formState.fullName,
+        email: formState.emailAddress,
+        time: new Date().toLocaleString(),
+        title: formState.subject || 'New Contact Form Message',
         message: formState.message,
         reply_to: formState.emailAddress
       };
@@ -204,46 +204,34 @@ const ContactPage: React.FC = () => {
             </p>
             <div className="space-y-4">
               <Card whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <a href="mailto:tanishqshinde777@gmail.com" className="flex items-center space-x-4">
+                <a href="mailto:rohanmalakar5091@gmail.com" className="flex items-center space-x-4">
                   <div className="bg-purple-100 dark:bg-purple-900 p-3 rounded-full text-purple-600 dark:text-purple-400">
                     <Mail size={24} />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold">Email</h3>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">tanishqshinde777@gmail.com</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">rohanmalakar5091@gmail.com</p>
                     <p className="text-xs text-gray-400 dark:text-gray-500">Drop me a line anytime</p>
                   </div>
                   <Send className="ml-auto text-gray-400 dark:text-gray-500" size={20} />
                 </a>
               </Card>
               <Card whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <a href="tel:+918830180982" className="flex items-center space-x-4">
+                <a href="tel:+9098905595" className="flex items-center space-x-4">
                   <div className="bg-green-100 dark:bg-green-900 p-3 rounded-full text-green-600 dark:text-green-400">
                     <Phone size={24} />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold">Phone</h3>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">+91-88301 80982</p>
-                    <p className="text-xs text-gray-400 dark:text-gray-500">Available during business hours</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">+91-9098905595</p>
+                    <p className="text-xs text-gray-400 dark:text-gray-500">Always Available to help</p>
                   </div>
                   <Send className="ml-auto text-gray-400 dark:text-gray-500" size={20} />
                 </a>
               </Card>
+              
               <Card whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <div className="flex items-center space-x-4">
-                  <div className="bg-purple-100 dark:bg-purple-900 p-3 rounded-full text-purple-600 dark:text-purple-400">
-                    <MapPin size={24} />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold">Location</h3>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">Pune, Maharashtra</p>
-                    <p className="text-xs text-gray-400 dark:text-gray-500">Mohan Nagar, Dhankawadi</p>
-                  </div>
-                  <Send className="ml-auto text-gray-400 dark:text-gray-500" size={20} />
-                </div>
-              </Card>
-              <Card whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <a href="https://linkedin.com/in/tanishq-shinde-628468249" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-4">
+                <a href="https://linkedin.com/in/rohanmalakar" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-4">
                   <div className="bg-blue-100 dark:bg-blue-900 p-3 rounded-full text-blue-600 dark:text-blue-400">
                     <Linkedin size={24} />
                   </div>
