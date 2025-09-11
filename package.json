@@ -7,7 +7,7 @@
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint",
-    "deploy": "next build && copy CNAME out\\CNAME && type nul > out\\.nojekyll"
+    "deploy": "next build && node -e \"const fs = require('fs'); fs.copyFileSync('CNAME', 'out/CNAME'); fs.writeFileSync('out/.nojekyll', '');\""
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
