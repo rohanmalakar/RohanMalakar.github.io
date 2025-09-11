@@ -1,10 +1,8 @@
 import ExperienceList from "@/app/_components/ExperienceList"
-import ThemeToggle from "@/app/_components/ThemeToggle"
 
-export default function Home() {
+export default function Experience() {
   return (
       <div>
-         <ThemeToggle />
          <ExperienceList/>
       </div>
   );
