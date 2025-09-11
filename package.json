@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "deploy": "next build && next export && cp CNAME out/CNAME && touch out/.nojekyll"
   },
   "dependencies": {
     "framer-motion": "^12.23.12",

@@ -1,7 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: "export",
+  // Optional: Add the basePath for project sites
+  // basePath: '/rohanmalakar.github.io',
+  images: {
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;
