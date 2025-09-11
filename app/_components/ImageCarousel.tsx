@@ -43,9 +43,9 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
     setCurrentIndex(index);
   };
 
-  const togglePlayPause = () => {
+  const togglePlayPause = useCallback(() => {
     setIsPlaying(!isPlaying);
-  };
+  }, [isPlaying]);
 
   const toggleFullscreen = () => {
     setIsFullscreen(!isFullscreen);
