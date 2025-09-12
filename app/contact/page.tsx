@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, VariantLabels, TargetAndTransition } from 'framer-motion';
-import { Mail, Phone, MapPin, Linkedin, Send } from 'lucide-react';
+import { Mail, Phone, Linkedin, Send } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
 // TypeScript interfaces
@@ -101,7 +101,7 @@ const ContactPage: React.FC = () => {
   // Initialize EmailJS
   useEffect(() => {
     emailjs.init(EMAILJS_PUBLIC_KEY);
-  }, []);
+  }, [EMAILJS_PUBLIC_KEY]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;

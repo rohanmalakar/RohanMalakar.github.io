@@ -16,14 +16,10 @@ import {
   GitBranch,
   Cpu,
   MonitorSpeaker,
-  CloudCog,
   BookOpen,
-  Zap,
   Brain,
   Network,
-  BarChart3,
-  TrendingUp,
-  Shield
+  TrendingUp
 } from 'lucide-react';
 
 interface Skill {

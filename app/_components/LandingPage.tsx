@@ -3,11 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from './ThemeProvider';
 import {  
-  Github, 
-  Linkedin, 
-  Mail, 
   Download,
-  ChevronDown,
   Sparkles,
   Rocket
 } from 'lucide-react';
@@ -36,9 +32,7 @@ const LandingPage: React.FC = () => {
   }, [roles.length]);
 
 
-  const scrollToNext = () => {
-    window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
-  };
+
 
   // Theme-based classes
   const themeClasses = {
@@ -143,7 +137,7 @@ const LandingPage: React.FC = () => {
             variants={itemVariants}
             className={`text-5xl sm:text-6xl lg:text-8xl font-bold ${themeClasses.text.primary} mb-6`}
           >
-            Hi, I'm{' '}
+            Hi, I&apos;m{' '}
             <span className={`bg-gradient-to-r ${
               isDarkMode 
                 ? 'from-blue-400 via-purple-500 to-indigo-600' 
@@ -186,7 +180,7 @@ const LandingPage: React.FC = () => {
             className={`text-xl lg:text-2xl ${themeClasses.text.secondary} max-w-4xl mx-auto leading-relaxed mb-12`}
           >
             Passionate about crafting exceptional digital experiences, solving complex problems,
-            and exploring the frontiers of artificial intelligence. Let's build something amazing together!
+            and exploring the frontiers of artificial intelligence. Let&apos;s build something amazing together!
           </motion.p>
 
           {/* CTA Buttons */}
