@@ -12,6 +12,12 @@ module.exports = {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
       },
+      fontFamily: {
+        'sans': ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        'heading': ['var(--font-poppins)', 'system-ui', 'sans-serif'],
+        'mono': ['var(--font-jetbrains-mono)', 'monospace'],
+        'serif': ['var(--font-playfair-display)', 'serif'],
+      },
     },
   },
   plugins: [],

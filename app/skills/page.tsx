@@ -62,9 +62,9 @@ const skillsData: SkillCategory[] = [
     skills: [
       { name: "Node.js", level: "Advanced", icon: Server },
       { name: "Express.js", level: "Advanced", icon: Layers },
-      { name: "PostgreSQL", level: "Intermediate", icon: Database },
+      { name: "SQL", level: "Intermediate", icon: Database },
       { name: "MongoDB", level: "Intermediate", icon: HardDrive },
-      { name: "Firebase", level: "Intermediate", icon: Cloud }
+      { name: "Nest.js", level: "Intermediate", icon: Cloud }
     ]
   },
   {
@@ -75,9 +75,9 @@ const skillsData: SkillCategory[] = [
     skills: [
       { name: "Git", level: "Expert", icon: GitBranch },
       { name: "C Programming", level: "Intermediate", icon: Cpu },
-      { name: "C++", level: "Intermediate", icon: MonitorSpeaker },
+      { name: "C++", level: "Advanced", icon: MonitorSpeaker },
       { name: "Python", level: "Intermediate", icon: Settings },
-      { name: "AWS", level: "Noob", icon: CloudCog }
+      { name: "N8N", level: "Intermediate", icon: Settings },
     ]
   }
 ];
@@ -126,27 +126,6 @@ const coreSubjects: CoreSubject[] = [
     description: "SDLC, design patterns, testing methodologies, and project management",
     icon: Code2,
     relevance: "Professional development practices"
-  },
-  {
-    name: "Machine Learning",
-    grade: "A",
-    description: "Supervised/unsupervised learning, neural networks, and AI model implementation",
-    icon: Zap,
-    relevance: "AI/ML project development"
-  },
-  {
-    name: "Statistics & Probability",
-    grade: "A-",
-    description: "Statistical analysis, probability theory, and data interpretation techniques",
-    icon: BarChart3,
-    relevance: "Data science foundation"
-  },
-  {
-    name: "Cybersecurity",
-    grade: "A",
-    description: "Information security, cryptography, ethical hacking, and security protocols",
-    icon: Shield,
-    relevance: "Secure application development"
   }
 ];
 
@@ -207,7 +186,7 @@ const TechnicalExpertise: React.FC = () => {
             <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-2xl">
               <Wrench className="w-8 h-8 text-blue-600 dark:text-blue-400" />
             </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-serif text-gray-900 dark:text-white">
               Technical Expertise
             </h1>
           </div>

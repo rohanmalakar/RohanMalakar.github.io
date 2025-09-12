@@ -3,22 +3,31 @@
 import React from 'react';
 import { Moon, Sun } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
+import { motion } from 'framer-motion';
 
 const ThemeToggle: React.FC = () => {
   const { isDarkMode, toggleDarkMode } = useTheme();
 
   return (
-    <button
-      onClick={toggleDarkMode}
-      className="fixed top-4 right-4 z-50 p-3 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-full shadow-lg dark:shadow-black/20 border dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400"
-      aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-    >
-      {isDarkMode ? (
-        <Sun className="w-5 h-5" />
-      ) : (
-        <Moon className="w-5 h-5" />
-      )}
-    </button>
+
+    <motion.button
+        onClick={toggleDarkMode}
+        className={`fixed top-6 right-6 z-50 p-3 rounded-full ${
+          isDarkMode ? 'bg-yellow-500 text-gray-900' : 'bg-purple-600 text-white'
+        } shadow-lg hover:shadow-xl transition-all duration-300`}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.5 }}
+      >
+        <motion.div
+          animate={{ rotate: isDarkMode ? 0 : 180 }}
+          transition={{ duration: 0.5 }}
+        >
+          {isDarkMode ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
+        </motion.div>
+      </motion.button>
   );
 };
 

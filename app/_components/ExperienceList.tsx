@@ -112,7 +112,7 @@ const experienceData = [
 
 function ExperienceList() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col ">
       {experienceData.map((exp, idx) => (
         <div key={idx}>
           <ExperienceCard

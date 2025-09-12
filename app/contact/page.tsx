@@ -183,7 +183,7 @@ const ContactPage: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 mb-4">
+          <h1 className="text-4xl sm:text-5xl font-extrabold font-serif text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 mb-4">
             Let&apos;s Connect
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
@@ -198,7 +198,7 @@ const ContactPage: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex flex-col space-y-8"
           >
-            <h2 className="text-2xl font-bold">Get In Touch</h2>
+            <h2 className="text-2xl font-bold font-heading">Get In Touch</h2>
             <p className="text-gray-600 dark:text-gray-300">
               I&apos;m always open to discussing new opportunities, innovative projects, and potential collaborations. Whether you have a project in mind or just want to connect, I&apos;d love to hear from you.
             </p>

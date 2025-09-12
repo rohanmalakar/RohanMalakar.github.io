@@ -16,7 +16,6 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
   images,
   autoPlay = true,
   autoPlayInterval = 4000,
-  showThumbnails = true,
   showFullscreenButton = true
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -229,38 +228,6 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
           </div>
         )}
       </div>
-
-      {/* Thumbnail Navigation */}
-      {showThumbnails && images.length > 1 && !isFullscreen && (
-        <div className="mt-4 flex space-x-2 sm:space-x-3 overflow-x-auto pb-2">
-          {images.map((image, index) => (
-            <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className={`relative flex-shrink-0 w-16 h-12 sm:w-20 sm:h-16 rounded-lg overflow-hidden transition-all duration-300 ${
-                index === currentIndex
-                  ? 'ring-2 ring-blue-500 dark:ring-blue-400 scale-105'
-                  : 'hover:scale-105 opacity-70 hover:opacity-100'
-              }`}
-            >
-              {imageError[index] ? (
-                <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-600 dark:to-gray-700 flex items-center justify-center">
-                  <span className="text-xs">📷</span>
-                </div>
-              ) : (
-                <Image
-                  src={image}
-                  alt={`Thumbnail ${index + 1}`}
-                  fill
-                  className="object-cover"
-                  sizes="80px"
-                  onError={() => handleImageError(index)}
-                />
-              )}
-            </button>
-          ))}
-        </div>
-      )}
     </>
   );
 

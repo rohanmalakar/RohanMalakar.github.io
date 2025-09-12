@@ -36,7 +36,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
   projectLinks = []
 }) => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 flex items-center justify-center p-2 sm:p-4 lg:p-6">
+    <div className="min-h-screen flex items-center justify-center p-2 sm:p-4 lg:p-6">
       <div className="w-full max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl bg-white dark:bg-gray-800 rounded-2xl sm:rounded-3xl shadow-xl dark:shadow-2xl dark:shadow-black/20 overflow-hidden border dark:border-gray-700">
         {/* Header Section */}
         <div className="relative p-4 sm:p-6 lg:p-8 pb-4 sm:pb-6">
@@ -44,8 +44,8 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
           <div className="relative">
             <div className="flex flex-col sm:flex-row sm:items-start justify-between mb-4 sm:mb-6 gap-3 sm:gap-4">
               <div className="flex-1 min-w-0">
-                <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-2 break-words">{title}</h1>
-                <a href="#" className="text-base sm:text-lg lg:text-xl text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold transition-colors duration-200 break-words">
+                <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold font-heading text-gray-900 dark:text-white mb-2 break-words">{title}</h1>
+                <a href="#" className="text-base sm:text-lg lg:text-xl text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold font-heading transition-colors duration-200 break-words">
                   {company}
                 </a>
               </div>
