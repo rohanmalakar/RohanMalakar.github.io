@@ -3,6 +3,7 @@ import { Inter, Poppins, JetBrains_Mono, Playfair_Display } from "next/font/goog
 import "./globals.css";
 import { ThemeProvider } from "./_components/ThemeProvider";
 import Navbar from "./_components/Navbar";
+import Footer from "@/app/_components/Footer"
 
 const inter = Inter({
   variable: "--font-inter",
@@ -49,6 +50,7 @@ export default function RootLayout({
           <main className="pt-16">
             {children}
           </main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

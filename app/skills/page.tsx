@@ -74,6 +74,7 @@ const skillsData: SkillCategory[] = [
       { name: "C++", level: "Advanced", icon: MonitorSpeaker },
       { name: "Python", level: "Intermediate", icon: Settings },
       { name: "N8N", level: "Intermediate", icon: Settings },
+      { name: "Docker", level: "Intermediate", icon: MonitorSpeaker },
     ]
   }
 ];
