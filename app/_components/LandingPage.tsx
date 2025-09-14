@@ -135,14 +135,14 @@ const LandingPage: React.FC = () => {
           {/* Main Heading */}
           <motion.h1 
             variants={itemVariants}
-            className={`text-5xl sm:text-6xl lg:text-8xl font-bold ${themeClasses.text.primary} mb-6`}
+            className={`text-3xl md:text-6xl sm:text-4xl lg:text-8xl font-bold ${themeClasses.text.primary} mb-6`}
           >
             Hi, I&apos;m{' '}
             <span className={`bg-gradient-to-r ${
               isDarkMode 
                 ? 'from-blue-400 via-purple-500 to-indigo-600' 
                 : 'from-blue-600 via-purple-600 to-pink-600'
-            } bg-clip-text text-transparent`}>
+            } bg-clip-text text-transparent `}>
               Rohan Malakar
             </span>
           </motion.h1>
