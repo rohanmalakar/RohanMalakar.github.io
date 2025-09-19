@@ -1,9 +1,25 @@
-import ExperienceList from "@/app/_components/ExperienceList"
+import ExperienceList from "@/app/_components/ExperienceList";
 
 export default function Experience() {
   return (
-    <div className="bg-gray-50 dark:bg-slate-900 min-h-screen py-16 px-2 md:px-10">
-      <div className="max-w-6xl mx-auto">
+    <div className="relative bg-gray-50 dark:bg-black min-h-screen py-16 px-2 md:px-10">
+      {/* DotGrid Background */}
+      {/* <div className="absolute inset-0 z-0">
+        <DotGrid
+          dotSize={3}
+          gap={20}
+          baseColor="#A18A87"
+          activeColor="#1707ED"
+          proximity={80}
+          shockRadius={250}
+          shockStrength={2}
+          resistance={1200}
+          returnDuration={2}
+        />
+      </div> */}
+      
+      {/* Main Content */}
+      <div className="relative z-10 max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold font-serif bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
             Professional Experience

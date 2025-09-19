@@ -2,6 +2,8 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { useTheme } from "@/app/_components/ThemeProvider";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 // Utility function to combine class names (replaces cn from shadcn)
 const combineClasses = (...classes) => {
@@ -14,6 +16,8 @@ export const HoverEffect = ({
   className,
 }) => {
   let [hoveredIndex, setHoveredIndex] = useState(null);
+  let router=useRouter()
+  
 
   return (
     <div
@@ -23,8 +27,8 @@ export const HoverEffect = ({
       )}
     >
       {items.map((item, idx) => (
-        <a
-          href={item?.link}
+        <Link
+          href={`/projects/${item.id}`}
           key={item?.link}
           className="relative group block p-2 h-full w-full"
           onMouseEnter={() => setHoveredIndex(idx)}
@@ -51,7 +55,7 @@ export const HoverEffect = ({
             <CardTitle>{item.title}</CardTitle>
             <CardDescription>{item.description}</CardDescription>
           </Card>
-        </a>
+        </Link>
       ))}
     </div>
   );
@@ -103,43 +107,49 @@ export const CardDescription = ({
 };
 
 // Demo Component showing usage
-export default function HoverEffectDemo() {
+export  default function HoverEffectDemo() {
   // Sample data for the cards
   const projects = [
     {
       title: "E-Commerce Platform",
       description: "A modern e-commerce solution built with React and Node.js. Features include user authentication, payment processing, and real-time inventory management.",
       link: "https://example.com/ecommerce",
+      id:"1"
     },
     {
       title: "Task Management App",
       description: "Streamline your workflow with this intuitive task management application. Drag-and-drop functionality, team collaboration, and progress tracking.",
       link: "https://example.com/taskmanager",
+       id:"2"
     },
     {
       title: "Weather Dashboard",
       description: "Real-time weather information with beautiful visualizations. Get forecasts, alerts, and climate data for any location worldwide.",
       link: "https://example.com/weather",
+      id:"3"
     },
     {
       title: "Social Media Analytics",
       description: "Comprehensive analytics platform for social media management. Track engagement, analyze trends, and optimize your content strategy.",
       link: "https://example.com/analytics",
+       id:"4"
     },
     {
       title: "Learning Management System",
       description: "Educational platform with course creation tools, student progress tracking, and interactive learning materials for online education.",
       link: "https://example.com/lms",
+      id:"5"
     },
     {
       title: "Portfolio Website",
       description: "Showcase your work with this elegant portfolio template. Responsive design, smooth animations, and easy customization options.",
       link: "https://example.com/portfolio",
-    },
+      id:"6"
+    }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-slate-900 text-gray-900 dark:text-white transition-colors duration-500">
+    <div className="border-1 border-transparent bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-slate-900 text-gray-900 dark:text-white transition-colors duration-500">
       <div className="max-w-7xl mx-auto px-8">
         {/* Header */}
         <div className="pt-20 pb-10">
@@ -152,7 +162,7 @@ export default function HoverEffectDemo() {
         </div>
 
         {/* Projects Section */}
-        <section className="mb-20">
+        <section className="">
           <h2 className="text-3xl font-bold mb-8 text-center text-gray-800 dark:text-gray-100">
             Featured Projects
           </h2>

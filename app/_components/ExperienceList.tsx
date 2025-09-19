@@ -1,66 +1,77 @@
 import React from "react"
 import ExperienceCard from "@/app/_components/ExperienceCard"
 const experienceData = [
+    {
+  title: "Intern",
+  company: "iotiot.in",
+  duration: "1st July 2025 - Present",
+  location: "Gwalior (In-office)",
+  status: "Current Work",
+  achievements: [
+    {
+      text: "Integrated Razorpay, Delhivery API, and automated product/cart flows with admin panel enhancements in Cepheia."
+    },
+    {
+      text: "Enhanced Youthspire by improving course/lecture management, upgrading UI, and developing the Bouncy portal (task bounties & job portal)."
+    },
+    {
+      text: "Built employee activity tracking, attendance, and holiday management modules for BreakMart’s internal admin panel."
+    },
+    {
+      text: "Developed the homepage and implemented animations for INKY."
+    },
+    {
+      text: "Contributed to multiple projects focusing on payment integration, admin panel optimization, workflow automation, and UI/UX improvements."
+    }
+  ],
+  technologies: [
+    "React",
+    "Express",
+    "Framer Motion",
+    "Next.js",
+    "Nest.js",
+    "TypeScript",
+    "Node.js",
+    "MongoDB",
+    "Docker",
+    "Git",
+    "Tailwind CSS"
+  ],
+  images: [
+    "/project-images/cepheia.png",
+    "/project-images/youthspire.png",
+    "/project-images/breakmart.png",
+    "/project-images/inky.png"
+  ],
+  projectLinks: [
+    {
+      type: "live" as const,
+      url: "https://youthspire.in/",
+      label: "Youthspire"
+    },
+    {
+      type: "live" as const,
+      url: "https://breakmart.in/",
+      label: "BreakMart"
+    }
+    ,
+    {
+      type: "live" as const,
+      url: "https://inky.breakmart.in",
+      label: "INKY"
+    }
+    ,
+    {
+      type: "live" as const,
+      url: "https://cepheia.in",
+      label: "Cepheia"
+    }
+  ]
+}
+,
   {
-    title: "Intern",
-    company: "iotiot.in",
-    duration: "23rd Dec 2024 - 31st Mar 2025",
-    location: "Remote",
-    status: "Recent Work",
-    achievements: [
-      {
-        text: "Developed a multi-phase Brand Knowledge Graph System using JSON, SQLite, Neo4j, and D3.js; achieved 85% accuracy via Cypher."
-      },
-      {
-        text: "Integrated Gemini API for natural language to SQL conversion and structured result export."
-      },
-      {
-        text: "Built an LLM-based Reasoning Model using GRPO with LoRA adapters on unsloth/tinyllama-bnb-4bit; fine-tuned on Colab (T4 GPU, 4-bit quant)."
-      },
-      {
-        text: "Employed HuggingFace, Unsloth, and RL to implement a GRPOTrainer pipeline for reward-based response generation."
-      }
-    ],
-    technologies: [
-      "Python",
-      "Neo4j",
-      "SQLite",
-      "D3.js",
-      "Gemini API",
-      "HuggingFace",
-      "TensorFlow",
-      "LoRA",
-      "Unsloth",
-      "Google Colab"
-    ],
-    images: [
-      "/project-images/knowledge-graph-1.png",
-      "/project-images/knowledge-graph-2.png",
-      "/project-images/llm-model-dashboard.png",
-      "/project-images/data-visualization.png",
-      "/project-images/api-integration.png"
-    ],
-    projectLinks: [
-      {
-        type: "live" as const,
-        url: "https://your-knowledge-graph-demo.com",
-        label: "Live Demo"
-      },
-      {
-        type: "github" as const,
-        url: "https://github.com/yourusername/brand-knowledge-graph",
-        label: "Source Code"
-      },
-      {
-        type: "demo" as const,
-        url: "https://colab.research.google.com/your-notebook",
-        label: "Colab Notebook"
-      }
-    ]
-  },
-  {
-    title: "Full Stack Developer",
-    company: "Previous Company",
+    title: "MERN Stack Developer",
+    company: "TeachingHub",
     duration: "Jun 2024 - Dec 2024",
     location: "Remote",
     status: "Completed",
@@ -70,9 +81,6 @@ const experienceData = [
       },
       {
         text: "Implemented RESTful APIs and database management using Node.js, Express, and MongoDB."
-      },
-      {
-        text: "Deployed applications using Docker, AWS, and implemented CI/CD pipelines."
       },
       {
         text: "Collaborated with cross-functional teams using Agile methodologies and version control."
@@ -96,13 +104,8 @@ const experienceData = [
     ],
     projectLinks: [
       {
-        type: "live" as const,
-        url: "https://your-webapp.com",
-        label: "Visit Website"
-      },
-      {
         type: "github" as const,
-        url: "https://github.com/yourusername/webapp-project",
+        url: "https://github.com/rohanmalakar/teachingHub",
         label: "GitHub Repo"
       }
     ]

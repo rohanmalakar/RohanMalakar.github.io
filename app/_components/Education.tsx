@@ -135,24 +135,9 @@ const Education: React.FC = () => {
     }
   };
 
-  const starVariants = {
-    hidden: { opacity: 0, scale: 0 },
-    visible: {
-      opacity: [0, 1, 0],
-      scale: [0, 1.5, 0],
-      transition: {
-        duration: 2,
-        repeat: Infinity,
-        repeatDelay: 3
-      }
-    }
-  };
-
   // Theme-based classes
   const themeClasses = {
-    background: isDarkMode 
-      ? 'bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900' 
-      : 'bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50',
+    background: 'bg-transparent',
     text: {
       primary: isDarkMode ? 'text-white' : 'text-gray-900',
       secondary: isDarkMode ? 'text-gray-200' : 'text-gray-600',
@@ -168,59 +153,8 @@ const Education: React.FC = () => {
   };
 
   return (
-    <motion.section 
-      className={`py-16 px-4 sm:px-6 lg:px-8 ${themeClasses.background} min-h-screen relative overflow-hidden transition-all duration-1000`}
-      animate={{
-        background: isDarkMode 
-          ? 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)'
-          : 'linear-gradient(135deg, #dbeafe 0%, #fae8ff 50%, #fce7f3 100%)'
-      }}
-    >
-      {/* Animated Background Elements */}
-      {[...Array(isDarkMode ? 20 : 15)].map((_, i) => (
-        <motion.div
-          key={i}
-          className={`absolute w-2 h-2 ${themeClasses.stars} rounded-full ${
-            isDarkMode ? 'opacity-80' : 'opacity-30'
-          }`}
-          style={{
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-          }}
-          variants={starVariants}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: Math.random() * 5 }}
-        />
-      ))}
-
-      {/* Floating Geometric Shapes for Light Mode */}
-      {!isDarkMode && [...Array(8)].map((_, i) => (
-        <motion.div
-          key={`shape-${i}`}
-          className="absolute opacity-10"
-          style={{
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-          }}
-          animate={{
-            y: [-20, 20, -20],
-            rotate: [0, 360, 0],
-            scale: [1, 1.2, 1]
-          }}
-          transition={{
-            duration: 6 + Math.random() * 4,
-            repeat: Infinity,
-            delay: Math.random() * 3
-          }}
-        >
-          <div className={`w-16 h-16 bg-gradient-to-r from-purple-400 to-pink-400 ${
-            i % 3 === 0 ? 'rounded-full' : i % 3 === 1 ? 'rounded-lg rotate-45' : 'rounded-none'
-          }`} />
-        </motion.div>
-      ))}
-
-      <div className="max-w-6xl mx-auto relative z-10">
+    <motion.section>
+      <div className="max-w-6xl mx-auto px-5 relative z-10">
         {/* Journey Header */}
         <motion.div
           initial={{ opacity: 0, y: -50 }}

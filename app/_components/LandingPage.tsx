@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from './ThemeProvider';
 import {  
@@ -7,11 +7,13 @@ import {
   Sparkles,
   Rocket
 } from 'lucide-react';
+ import { useRouter } from 'next/navigation';
+import TextType from './UI/TextType';
+import GradientText from './UI/GradientText';
 
 const LandingPage: React.FC = () => {
-  const [currentRole, setCurrentRole] = useState(0);
-  const [isTyping, setIsTyping] = useState(true);
   const {isDarkMode} = useTheme();
+  const router = useRouter();
 
   const roles = [
     "Full Stack Developer",
@@ -19,26 +21,12 @@ const LandingPage: React.FC = () => {
     "AI Enthusiast"
   ];
 
-  useEffect(() => {
-    const roleInterval = setInterval(() => {
-      setIsTyping(false);
-      setTimeout(() => {
-        setCurrentRole((prev) => (prev + 1) % roles.length);
-        setIsTyping(true);
-      }, 500);
-    }, 3000);
-
-    return () => clearInterval(roleInterval);
-  }, [roles.length]);
-
 
 
 
   // Theme-based classes
   const themeClasses = {
-    background: isDarkMode 
-      ? 'bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900' 
-      : 'bg-gradient-to-br from-blue-50 via-white to-purple-50',
+    background: 'bg-transparent',
     text: {
       primary: isDarkMode ? 'text-white' : 'text-gray-900',
       secondary: isDarkMode ? 'text-gray-200' : 'text-gray-600',
@@ -79,30 +67,7 @@ const LandingPage: React.FC = () => {
 
 
   return (
-    <div className={`min-h-screen ${themeClasses.background} pt-10 relative overflow-hidden transition-all duration-1000`}>
-      {/* Background Elements */}
-      {isDarkMode && (
-        // Stars for dark mode only
-        [...Array(50)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-slate-400 rounded-full opacity-60"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              opacity: [0.3, 1, 0.3],
-              scale: [1, 1.5, 1]
-            }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 3
-            }}
-          />
-        ))
-      )}
+    <div className={`min-h-screen ${themeClasses.background} pt-5 relative overflow-hidden transition-all duration-1000`}>
       {/* Main Content */}
       <div className="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -112,9 +77,9 @@ const LandingPage: React.FC = () => {
           className="max-w-6xl mx-auto text-center"
         >
           {/* Hero Section */}
-          <motion.div variants={itemVariants} className="mb-8">
+          <motion.div variants={itemVariants} className="md:mb-10">
             <motion.div
-              className="inline-flex items-center space-x-2 mb-6"
+              className="inline-flex items-center space-x-2 "
               animate={{
                 scale: [1, 1.05, 1],
               }}
@@ -133,51 +98,29 @@ const LandingPage: React.FC = () => {
           </motion.div>
 
           {/* Main Heading */}
-          <motion.h1 
-            variants={itemVariants}
-            className={`text-3xl md:text-6xl sm:text-4xl lg:text-8xl font-bold ${themeClasses.text.primary} mb-6`}
+          <GradientText
+            colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+            animationSpeed={3}
+            showBorder={false}
+            className="bg-transparent "
           >
-            Hi, I&apos;m{' '}
-            <span className={`bg-gradient-to-r ${
-              isDarkMode 
-                ? 'from-blue-400 via-purple-500 to-indigo-600' 
-                : 'from-blue-600 via-purple-600 to-pink-600'
-            } bg-clip-text text-transparent `}>
-              Rohan Malakar
-            </span>
-          </motion.h1>
+            Hi, I&apos;m Rohan Malakar
+          </GradientText>
+          <div className='py-5 md:py-16'>
+            <TextType 
+                text={roles}
+                typingSpeed={100}
+                pauseDuration={1000}
+                showCursor={true}
+                cursorCharacter="_"
+              />
+          </div>
 
-          {/* Dynamic Role */}
-          <motion.div variants={itemVariants} className="mb-8">
-            <div className={`text-2xl sm:text-3xl lg:text-4xl font-semibold ${themeClasses.text.secondary} h-16 flex items-center justify-center`}>
-              <span className="mr-3">A</span>
-              <motion.span
-                key={currentRole}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: isTyping ? 1 : 0, y: isTyping ? 0 : -20 }}
-                transition={{ duration: 0.5 }}
-                className={`bg-gradient-to-r ${
-                  currentRole === 0 ? 'from-blue-500 to-cyan-500' :
-                  currentRole === 1 ? 'from-green-500 to-emerald-500' :
-                  'from-purple-500 to-pink-500'
-                } bg-clip-text text-transparent font-bold`}
-              >
-                {roles[currentRole]}
-              </motion.span>
-              <motion.span
-                animate={{ opacity: [0, 1, 0] }}
-                transition={{ duration: 1, repeat: Infinity }}
-                className={themeClasses.text.primary}
-              >
-                |
-              </motion.span>
-            </div>
-          </motion.div>
 
           {/* Description */}
           <motion.p 
             variants={itemVariants}
-            className={`text-xl lg:text-2xl ${themeClasses.text.secondary} max-w-4xl mx-auto leading-relaxed mb-12`}
+            className={`text-xl lg:text-2xl ${themeClasses.text.secondary} max-w-4xl mx-auto leading-relaxed mb-8 lg:mb-12`}
           >
             Passionate about crafting exceptional digital experiences, solving complex problems,
             and exploring the frontiers of artificial intelligence. Let&apos;s build something amazing together!
@@ -196,6 +139,9 @@ const LandingPage: React.FC = () => {
               } text-white font-bold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                router.push('/projects');
+              }}
             >
               <span className="relative z-10 flex items-center">
                 <Rocket className="mr-2 w-5 h-5" />
@@ -212,10 +158,15 @@ const LandingPage: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="flex items-center">
+              <a 
+               className="flex items-center"
+                href="https://www.canva.com/design/DAGaxusHOxk/aEaEILBP9z1ntDfqPS5w7g/edit?utm_content=DAGaxusHOxk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+                target="_blank"
+                rel="noopener noreferrer"
+               >
                 <Download className="mr-2 w-5 h-5" />
                 Download Resume
-              </span>
+              </a>
             </motion.button>
           </motion.div>
         </motion.div>
