@@ -57,31 +57,30 @@ const Navbar = () => {
             </h1>
           </motion.div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - Animated Tabs */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+            <div className="ml-10 flex space-x-1">
               {navItems.map((item) => (
-                <motion.div
+                <button
                   key={item.name}
-                  className="relative"
-                  whileHover={{ scale: 1.05 }}
+                  onClick={() => handleNavClick(item.path)}
+                  className={`${
+                    pathname === item.path ? "" : "hover:text-gray-700/60 dark:hover:text-gray-200/60"
+                  } relative rounded-full px-3 py-1.5 text-sm font-medium text-gray-700 dark:text-gray-200 outline-sky-400 transition focus-visible:outline-2`}
+                  style={{
+                    WebkitTapHighlightColor: "transparent",
+                  }}
                 >
-                  <button
-                    onClick={() => handleNavClick(item.path)}
-                    className={`px-4 py-2 rounded-2xl text-sm font-medium transition-all duration-200 ${pathname === item.path
-                        ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30'
-                        : 'text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-slate-800/50'
-                      }`}
-                  >
-                    {item.name}
-                  </button>
-                  {/* Animated underline */}
-                  <motion.div
-                    initial={{ width: 0 }}
-                    whileHover={{ width: '100%' }}
-                    className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600"
-                  />
-                </motion.div>
+                  {pathname === item.path && (
+                    <motion.span
+                      layoutId="bubble"
+                      className="absolute inset-0 z-10 bg-gradient-to-r from-blue-600 to-purple-600 mix-blend-difference"
+                      style={{ borderRadius: 9999 }}
+                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                    />
+                  )}
+                  {item.name}
+                </button>
               ))}
             </div>
           </div>
