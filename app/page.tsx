@@ -4,7 +4,6 @@ import LandingPage from "@/app/_components/LandingPage";
 import DotGrid from "./_components/UI/DottedBackground";
 import { useTheme } from "./_components/ThemeProvider";
 import ScrollVelocity from "./_components/UI/InfiniteScrolling";
-import GithubTimeLine from "./_components/GithubTimeLine";
 
 
 
@@ -43,9 +42,9 @@ export default function Home() {
         <section>
            <Education/>
         </section>
-        <div>
+        {/* <div>
           <GithubTimeLine/>
-        </div>
+        </div> */}
         <div className="my-20">
           <ScrollVelocity
             texts={[ 'FULL STACK DEVELOPER']} 
