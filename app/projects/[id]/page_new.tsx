@@ -15,11 +15,6 @@ export async function generateStaticParams() {
   ];
 }
 
-export default async function ProjectDetail({ 
-  params 
-}: { 
-  params: Promise<{ id: string }> 
-}) {
-  const { id } = await params;
-  return <ProjectDetailClient id={id} />;
+export default function ProjectDetail({ params }: { params: { id: string } }) {
+  return <ProjectDetailClient id={params.id} />;
 }
