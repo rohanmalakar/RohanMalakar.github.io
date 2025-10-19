@@ -19,8 +19,6 @@ const Navbar = () => {
     { name: 'Contact', path: '/contact' }
   ];
 
-
-
   // Close menu when clicking on a nav item
   const handleNavClick = (path: string) => {
     setIsMenuOpen(false);
@@ -32,8 +30,42 @@ const Navbar = () => {
     hidden: { y: -100, opacity: 0 },
     visible: {
       y: 0,
-      opacity: 1
+      opacity: 1,
+      transition: { duration: 0.6, ease: "easeOut" as const}
     }
+  };
+
+  const mobileMenuVariants = {
+    hidden: { x: '-100%', opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: { duration: 0.3, ease: "easeOut" as const }
+    },
+    exit: {
+      x: '-100%',
+      opacity: 0,
+      transition: { duration: 0.3, ease: "easeIn" as const }
+    }
+  };
+
+  const mobileItemVariants = {
+    hidden: { x: -20, opacity: 0 },
+    visible: (index: number) => ({
+      x: 0,
+      opacity: 1,
+      transition: { delay: index * 0.1, duration: 0.3 }
+    })
+  };
+
+  const navItemVariants = {
+    hidden: { scale: 0.95, opacity: 0 },
+    visible: (index: number) => ({
+      scale: 1,
+      opacity: 1,
+      transition: { delay: index * 0.05, duration: 0.3 }
+    }),
+    hover: { scale: 1.05, transition: { duration: 0.2 } }
   };
 
   return (
@@ -59,9 +91,14 @@ const Navbar = () => {
           {/* Desktop Navigation - Animated Tabs */}
           <div className="hidden md:block">
             <div className="ml-10 flex space-x-1">
-              {navItems.map((item) => (
-                <button
+              {navItems.map((item, index) => (
+                <motion.button
                   key={item.name}
+                  custom={index}
+                  variants={navItemVariants}
+                  initial="hidden"
+                  animate="visible"
+                  whileHover="hover"
                   onClick={() => handleNavClick(item.path)}
                   className={`${
                     pathname === item.path ? "" : "hover:text-gray-700/60 dark:hover:text-gray-200/60"
@@ -78,8 +115,8 @@ const Navbar = () => {
                       transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                     />
                   )}
-                  {item.name}
-                </button>
+                  <span className="relative z-20">{item.name}</span>
+                </motion.button>
               ))}
             </div>
           </div>
@@ -87,7 +124,13 @@ const Navbar = () => {
           {/* Dark mode toggle and Mobile menu button */}
           <div className="flex items-center space-x-4">
             {/* Dark Mode Toggle */}
-            <ThemeToggle />
+            <motion.div
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.3 }}
+            >
+              <ThemeToggle />
+            </motion.div>
 
             {/* Mobile menu button */}
             <div className="md:hidden">
@@ -97,7 +140,29 @@ const Navbar = () => {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
-                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                <AnimatePresence mode="wait">
+                  {isMenuOpen ? (
+                    <motion.div
+                      key="close"
+                      initial={{ rotate: -90, opacity: 0 }}
+                      animate={{ rotate: 0, opacity: 1 }}
+                      exit={{ rotate: 90, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <X size={24} />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="menu"
+                      initial={{ rotate: 90, opacity: 0 }}
+                      animate={{ rotate: 0, opacity: 1 }}
+                      exit={{ rotate: -90, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Menu size={24} />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </motion.button>
             </div>
           </div>
@@ -108,29 +173,32 @@ const Navbar = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            initial={{ x: '-100%', opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: '-100%', opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden fixed top-16 left-0 right-0 bottom-0 bg-white/98 dark:bg-slate-900/98 backdrop-blur-lg border-t border-gray-200/50 dark:border-slate-700/50 "
+            variants={mobileMenuVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className="md:hidden fixed top-16 left-0 right-0 bottom-0 bg-white/98 dark:bg-slate-900/98 backdrop-blur-lg border-t border-gray-200/50 dark:border-slate-700/50"
           >
-            <div className="px-4 py-8 space-y-6  text-white">
+            <div className="px-4 py-8 space-y-4">
               {navItems.map((item, index) => (
                 <motion.div
                   key={item.name}
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: index * 0.1 }}
+                  custom={index}
+                  variants={mobileItemVariants}
+                  initial="hidden"
+                  animate="visible"
                 >
-                  <button
+                  <motion.button
                     onClick={() => handleNavClick(item.path)}
-                    className={`block w-full  text-left px-4 py-3 rounded-2xl text-lg font-medium transition-all duration-200 ${pathname === item.path
-                        ? 'text-blue-600 dark:text-blue-400 bg-gradient-to-r  from-blue-900/30 to-purple-900/30 border border-blue-200 dark:border-blue-700/50'
-                        : ' dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gradient-to-r hover:from-gray-50 hover:to-blue-50 dark:hover:from-slate-800/50 dark:hover:to-slate-700/50 bg-black text-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700/50'
+                    whileHover={{ x: 4 }}
+                    whileTap={{ scale: 0.98 }}
+                    className={`block w-full text-left px-4 py-3 rounded-2xl text-lg font-medium transition-all duration-200 ${pathname === item.path
+                        ? 'text-blue-600 dark:text-blue-400 bg-gradient-to-r from-blue-900/30 to-purple-900/30 border border-blue-200 dark:border-blue-700/50'
+                        : 'text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gradient-to-r hover:from-gray-50 hover:to-blue-50 dark:hover:from-slate-800/50 dark:hover:to-slate-700/50 border border-gray-200 dark:border-slate-700/50'
                       }`}
                   >
                     {item.name}
-                  </button>
+                  </motion.button>
                 </motion.div>
               ))}
             </div>

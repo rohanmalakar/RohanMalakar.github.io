@@ -1,5 +1,8 @@
+'use client';
 import React from "react"
+import { motion } from "framer-motion"
 import ExperienceCard from "@/app/_components/ExperienceCard"
+
 const experienceData = [
     {
   title: "Intern",
@@ -15,7 +18,7 @@ const experienceData = [
       text: "Enhanced Youthspire by improving course/lecture management, upgrading UI, and developing the Bouncy portal (task bounties & job portal)."
     },
     {
-      text: "Built employee activity tracking, attendance, and holiday management modules for BreakMart’s internal admin panel."
+      text: "Built employee activity tracking, attendance, and holiday management modules for BreakMart's internal admin panel."
     },
     {
       text: "Developed the homepage and implemented animations for INKY."
@@ -112,12 +115,43 @@ const experienceData = [
   },
 ]
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.1
+    }
+  }
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut" as const
+    }
+  }
+}
 
 function ExperienceList() {
   return (
-    <div className="flex flex-col ">
+    <motion.div
+      className="flex flex-col"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+    >
       {experienceData.map((exp, idx) => (
-        <div key={idx}>
+        <motion.div
+          key={idx}
+          variants={itemVariants}
+        >
           <ExperienceCard
             title={exp.title}
             company={exp.company}
@@ -129,9 +163,9 @@ function ExperienceList() {
             images={exp.images}
             projectLinks={exp.projectLinks}
           />
-        </div>
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
   )
 }
 
