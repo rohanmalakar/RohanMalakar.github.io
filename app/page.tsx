@@ -1,26 +1,14 @@
-"use client"
-import Education from "@/app/_components/Education";
+
+// import Education from "@/app/_components/Education";
 import LandingPage from "@/app/_components/LandingPage";
 import DotGrid from "./_components/UI/DottedBackground";
-import { useTheme } from "./_components/ThemeProvider";
-import ScrollVelocity from "./_components/UI/InfiniteScrolling";
-
-
+// import ScrollVelocity from "./_components/UI/InfiniteScrolling";
 
 export default function Home() {
-  const { isDarkMode } = useTheme();
   return (
-    <div className="relative  min-h-screen">
-      {/* DotGrid Background - Fixed positioning to cover entire viewport */}
-      <div style={{ 
-        width: '100vw', 
-        height: '100vh', 
-        position: 'fixed', 
-        top: 0, 
-        left: 0, 
-        zIndex: -1,
-        background:`${isDarkMode?"black":"white"}`
-      }}>
+    <div className="relative min-h-screen">
+      {/* DotGrid Background - Uses Tailwind dark: mode */}
+      <div className="fixed top-0 left-0 w-screen h-screen -z-10 bg-white dark:bg-black">
         <DotGrid
           dotSize={3}
           gap={15}
@@ -39,19 +27,19 @@ export default function Home() {
         <section>
            <LandingPage/>
         </section>
-        <section>
+        {/* <section>
            <Education/>
-        </section>
+        </section> */}
         {/* <div>
           <GithubTimeLine/>
         </div> */}
-        <div className="my-20">
+        {/* <div className="my-20">
           <ScrollVelocity
             texts={[ 'FULL STACK DEVELOPER']} 
             velocity={50} 
             className="custom-scroll-text"
           />
-        </div>
+        </div> */}
 
       </div>
     </div>

@@ -3,10 +3,10 @@ import ExperienceCard from "@/app/_components/ExperienceCard"
 const experienceData = [
     {
   title: "Intern",
-  company: "iotiot.in",
-  duration: "1st July 2025 - Present",
+  company: "BreakMart Technologies Pvt. Ltd.",
+  duration: "1st July 2025 - 30 Sept 2025",
   location: "Gwalior (In-office)",
-  status: "Current Work",
+  status: "Completed",
   achievements: [
     {
       text: "Integrated Razorpay, Delhivery API, and automated product/cart flows with admin panel enhancements in Cepheia."
@@ -72,7 +72,7 @@ const experienceData = [
   {
     title: "MERN Stack Developer",
     company: "TeachingHub",
-    duration: "Jun 2024 - Dec 2024",
+    duration: "1 March 2025 - 31 May 2025",
     location: "Remote",
     status: "Completed",
     achievements: [

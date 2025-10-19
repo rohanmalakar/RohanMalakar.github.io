@@ -2,7 +2,7 @@ import React from 'react';
 import { ContactForm } from './_components/ContactForm';
 import { ContactInfo } from './_components/ContactInfo';
 import { AnimatedBackground } from './_components/AnimatedBackground';
-import { AnimatedHeader } from './_components/AnimatedHeader';
+import Header from '@/app/contact/_components/Header';
 
 // Server component - no client-side interactions
 const ContactPage: React.FC = () => {
@@ -12,7 +12,7 @@ const ContactPage: React.FC = () => {
       <AnimatedBackground />
 
       <div className="container mx-auto px-4 py-16 z-10 relative">
-        <AnimatedHeader />
+        <Header />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
           <ContactInfo />

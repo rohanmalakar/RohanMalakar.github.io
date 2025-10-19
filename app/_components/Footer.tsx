@@ -2,45 +2,32 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, Heart } from 'lucide-react';
-import { useTheme } from './ThemeProvider';
-
+import Link from 'next/link';
 
 const SimpleFooter: React.FC = () => {
-
-  const { isDarkMode } = useTheme();
-  const themeClasses = {
-    background: isDarkMode 
-      ? 'bg-gray-900/80 border-white/10' 
-      : 'bg-[#FAE7FA] border-black',
-    text: {
-      primary: isDarkMode ? 'text-white' : 'text-gray-900',
-      secondary: isDarkMode ? 'text-gray-400' : 'text-gray-600'
-    }
-  };
-
   const socialLinks = [
     {
       name: 'GitHub',
       icon: <Github className="w-5 h-5" />,
-      href: 'https://github.com/yourusername',
-      hoverColor: isDarkMode ? 'hover:text-gray-300' : 'hover:text-gray-700'
+      href: 'https://github.com/rohanmalakar',
+      hoverColor: 'hover:text-gray-700 dark:hover:text-gray-300'
     },
     {
       name: 'LinkedIn',
       icon: <Linkedin className="w-5 h-5" />,
-      href: 'https://linkedin.com/in/yourusername',
-      hoverColor: isDarkMode ? 'hover:text-blue-400' : 'hover:text-blue-600'
+      href: 'https://linkedin.com/in/rohanmalakar',
+      hoverColor: 'hover:text-blue-600 dark:hover:text-blue-400'
     },
     {
       name: 'Email',
       icon: <Mail className="w-5 h-5" />,
-      href: 'mailto:your.email@gmail.com',
-      hoverColor: isDarkMode ? 'hover:text-red-400' : 'hover:text-red-600'
+      href: 'mailto:rohanmalakar5091@gmail.com',
+      hoverColor: 'hover:text-red-600 dark:hover:text-red-400'
     }
   ];
 
   return (
-    <footer className={`${themeClasses.background} backdrop-blur-lg border-t transition-all duration-300`}>
+    <footer className="bg-[#FAE7FA] dark:bg-gray-900/80 backdrop-blur-lg border-t border-black dark:border-white/10 transition-all duration-300">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -50,7 +37,7 @@ const SimpleFooter: React.FC = () => {
           className="flex flex-col md:flex-row justify-between items-center"
         >
           {/* Left Side - Copyright */}
-          <div className={`${themeClasses.text.secondary} text-center md:text-left mb-4 md:mb-0`}>
+          <div className="text-gray-600 dark:text-gray-400 text-center md:text-left mb-4 md:mb-0">
             <p className="flex items-center justify-center md:justify-start">
               © 2024 Rohan Malakar 
             </p>
@@ -64,18 +51,15 @@ const SimpleFooter: React.FC = () => {
           {/* Right Side - Social Links */}
           <div className="flex items-center space-x-6">
             {socialLinks.map((social, index) => (
-              <motion.a
+              <Link
                 key={index}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${themeClasses.text.secondary} ${social.hoverColor} transition-all duration-300`}
-                whileHover={{ scale: 1.2, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                aria-label={social.name}
+                className={`text-gray-600 dark:text-gray-400 ${social.hoverColor} transition-all duration-300`}
               >
                 {social.icon}
-              </motion.a>
+              </Link>
             ))}
           </div>
         </motion.div>
@@ -86,7 +70,7 @@ const SimpleFooter: React.FC = () => {
           whileInView={{ scaleX: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className={`mt-6 h-px ${isDarkMode ? 'bg-white/10' : 'bg-gray-200'} origin-center`}
+          className="mt-6 h-px bg-gray-200 dark:bg-white/10 origin-center"
         />
 
         {/* Bottom text */}
@@ -95,7 +79,7 @@ const SimpleFooter: React.FC = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
-          className={`${themeClasses.text.secondary} text-center text-sm mt-4`}
+          className="text-gray-600 dark:text-gray-400 text-center text-sm mt-4"
         >
           <p>Fullstack Developer • Competitive Programmer • AI Enthusiast</p>
         </motion.div>

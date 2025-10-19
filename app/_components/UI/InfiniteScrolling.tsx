@@ -8,7 +8,6 @@ import {
   useVelocity,
   useAnimationFrame
 } from 'framer-motion';
-import { useTheme } from '../ThemeProvider';
 
 interface VelocityMapping {
   input: [number, number];
@@ -111,7 +110,7 @@ export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
       damping: damping ?? 50,
       stiffness: stiffness ?? 400
     });
-    const {isDarkMode}=useTheme()
+    
     const velocityFactor = useTransform(
       smoothVelocity,
       velocityMapping?.input || [0, 1000],
@@ -159,7 +158,7 @@ export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
     return (
       <div className={`${parallaxClassName} relative overflow-hidden`} style={parallaxStyle}>
         <motion.div
-          className={`${scrollerClassName}  ${isDarkMode ? 'text-white' : 'text-black'} flex whitespace-nowrap text-center font-sans text-4xl font-bold tracking-[-0.02em] drop-shadow md:text-[5rem] md:leading-[5rem]`}
+          className={`${scrollerClassName} text-black dark:text-white flex whitespace-nowrap text-center font-sans text-4xl font-bold tracking-[-0.02em] drop-shadow md:text-[5rem] md:leading-[5rem]`}
           style={{ x, ...scrollerStyle }}
         >
           {spans}

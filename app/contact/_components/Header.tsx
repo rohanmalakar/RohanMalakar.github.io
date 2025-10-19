@@ -1,8 +1,8 @@
-"use client";
+'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
 
-export const AnimatedHeader: React.FC = () => {
+const Header: React.FC = () => {
   return (
     <motion.div
       initial={{ opacity: 0, y: -50 }}
@@ -19,3 +19,5 @@ export const AnimatedHeader: React.FC = () => {
     </motion.div>
   );
 };
+
+export default Header;

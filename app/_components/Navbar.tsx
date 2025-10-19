@@ -4,13 +4,23 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useRouter, usePathname } from 'next/navigation';
-import { useTheme } from './ThemeProvider';
+import { toggleTheme } from './ThemeProvider';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { isDarkMode, toggleDarkMode } = useTheme();
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
+
+  // useEffect(() => {
+  //   // Initialize state from DOM
+  //   setIsDarkMode(document.documentElement.classList.contains('dark'));
+  // }, []);
+
+  const handleToggleTheme = () => {
+    toggleTheme();
+    setIsDarkMode(!isDarkMode);
+  };
 
   const navItems = [
     { name: 'Home', path: '/' },
@@ -89,9 +99,8 @@ const Navbar = () => {
           <div className="flex items-center space-x-4">
             {/* Dark Mode Toggle */}
             <motion.button
-              onClick={toggleDarkMode}
-              className={` z-50 p-2 rounded-full ${isDarkMode ? 'bg-yellow-500 text-gray-900' : 'bg-purple-600 text-white'
-                } shadow-lg hover:shadow-xl transition-all duration-300`}
+              onClick={handleToggleTheme}
+              className="z-50 p-2 rounded-full bg-purple-600 text-white dark:bg-yellow-500 dark:text-gray-900 shadow-lg hover:shadow-xl transition-all duration-300"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               initial={{ opacity: 0, scale: 0 }}

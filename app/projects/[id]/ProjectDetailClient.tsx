@@ -165,7 +165,7 @@ const ProjectDetailClient: React.FC<ProjectDetailClientProps> = () => {
         </div>
 
         {/* Image Gallery */}
-        {project.images && project.images.length > 0 && (
+         {project.images && project.images.length > 0 && (
           <section className="mb-12">
             <h2 className="text-2xl font-bold mb-6">Project Gallery</h2>
             <div className="relative">
@@ -218,7 +218,6 @@ const ProjectDetailClient: React.FC<ProjectDetailClientProps> = () => {
             </div>
           </section>
         )}
-
         {/* Project Details */}
         <section className="grid md:grid-cols-2 gap-8">
           {/* Purpose */}

@@ -137,7 +137,7 @@ export default function ProjectsPage() {
   const filters = ['All', 'UI', 'Development', 'Design'];
 
   return (
-    <div className="min-h-screen px-4 sm:px-6 md:px-12 lg:px-20 xl:px-40 bg-black text-white">
+    <div className="min-h-screen px-4 sm:px-6 md:px-12 lg:px-20 xl:px-40 bg-white dark:bg-black text-gray-900 dark:text-white">
       {/* Header Section */}
       <div className="container mx-auto py-8 sm:py-12 md:py-16 lg:py-20">
         <AnimatedHeader />

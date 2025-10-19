@@ -1,5 +1,4 @@
-"use client"
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Code2,
   Database,
@@ -79,7 +78,6 @@ const skillsData: SkillCategory[] = [
   }
 ];
 
-// Core Subjects Data
 interface CoreSubject {
   name: string;
   grade: string;
@@ -171,9 +169,7 @@ const getCategoryDotColor = (title: string) => {
   }
 };
 
-const TechnicalExpertise: React.FC = () => {
-  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
-
+export default function TechnicalExpertise() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-slate-900 p-4 sm:p-6 lg:p-8">
       <div className="max-w-7xl mx-auto">
@@ -215,18 +211,13 @@ const TechnicalExpertise: React.FC = () => {
                     return (
                       <div
                         key={skill.name}
-                        className="flex items-center justify-between p-4 rounded-2xl bg-white/50 dark:bg-gray-700/30 backdrop-blur-sm hover:bg-white/80 dark:hover:bg-gray-700/50 transition-all duration-300 cursor-pointer border border-gray-100/50 dark:border-gray-600/30 hover:border-gray-200 dark:hover:border-gray-600"
-                        onMouseEnter={() => setHoveredSkill(`${category.title}-${skill.name}`)}
-                        onMouseLeave={() => setHoveredSkill(null)}
+                        className="flex items-center justify-between p-4 rounded-2xl bg-white/50 dark:bg-gray-700/30 backdrop-blur-sm hover:bg-white/80 dark:hover:bg-gray-700/50 transition-all duration-300 cursor-pointer border border-gray-100/50 dark:border-gray-600/30 hover:border-gray-200 dark:hover:border-gray-600 group/skill"
                         style={{
                           animationDelay: `${(categoryIndex * 0.2) + (skillIndex * 0.1)}s`
                         }}
                       >
                         <div className="flex items-center gap-3 sm:gap-4">
-                          <div className={`p-2 sm:p-3 rounded-xl transition-all duration-300 ${hoveredSkill === `${category.title}-${skill.name}`
-                              ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white scale-110'
-                              : 'bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300'
-                            }`}>
+                          <div className="p-2 sm:p-3 rounded-xl transition-all duration-300 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 group-hover/skill:bg-gradient-to-r group-hover/skill:from-blue-500 group-hover/skill:to-purple-500 group-hover/skill:text-white group-hover/skill:scale-110">
                             <IconComponent className="w-4 sm:w-5 h-4 sm:h-5" />
                           </div>
                           <span className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">
@@ -234,8 +225,7 @@ const TechnicalExpertise: React.FC = () => {
                           </span>
                         </div>
 
-                        <div className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 ${getLevelColor(skill.level)} ${hoveredSkill === `${category.title}-${skill.name}` ? 'scale-105' : ''
-                          }`}>
+                        <div className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 ${getLevelColor(skill.level)} group-hover/skill:scale-105`}>
                           {skill.level}
                         </div>
                       </div>
@@ -274,19 +264,13 @@ const TechnicalExpertise: React.FC = () => {
                   style={{
                     animationDelay: `${index * 0.1}s`
                   }}
-                  onMouseEnter={() => setHoveredSkill(`subject-${subject.name}`)}
-                  onMouseLeave={() => setHoveredSkill(null)}
                 >
                   {/* Subject Header */}
                   <div className="flex items-start justify-between mb-4">
-                    <div className={`p-3 rounded-xl transition-all duration-300 ${hoveredSkill === `subject-${subject.name}`
-                        ? 'bg-gradient-to-r from-orange-500 to-red-500 text-white scale-110'
-                        : 'bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400'
-                      }`}>
+                    <div className="p-3 rounded-xl transition-all duration-300 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 group-hover:bg-gradient-to-r group-hover:from-orange-500 group-hover:to-red-500 group-hover:text-white group-hover:scale-110">
                       <IconComponent className="w-6 h-6" />
                     </div>
-                    <div className={`px-3 py-1.5 rounded-full text-sm font-bold transition-all duration-300 ${getGradeColor(subject.grade)} ${hoveredSkill === `subject-${subject.name}` ? 'scale-105' : ''
-                      }`}>
+                    <div className={`px-3 py-1.5 rounded-full text-sm font-bold transition-all duration-300 ${getGradeColor(subject.grade)} group-hover:scale-105`}>
                       {subject.grade}
                     </div>
                   </div>
@@ -315,31 +299,7 @@ const TechnicalExpertise: React.FC = () => {
             })}
           </div>
         </div>
-
-        {/* Footer Stats */}
-        <div className="mt-12 sm:mt-16">
-          <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 sm:gap-6">
-            {[
-              { label: 'Frontend Skills', count: skillsData[0].skills.length, color: 'text-blue-600 dark:text-blue-400' },
-              { label: 'Backend Skills', count: skillsData[1].skills.length, color: 'text-green-600 dark:text-green-400' },
-              { label: 'Tools & Others', count: skillsData[2].skills.length, color: 'text-purple-600 dark:text-purple-400' },
-              { label: 'Core Subjects', count: coreSubjects.length, color: 'text-orange-600 dark:text-orange-400' },
-              { label: 'Total Items', count: skillsData.reduce((acc, cat) => acc + cat.skills.length, 0) + coreSubjects.length, color: 'text-gray-600 dark:text-gray-300' }
-            ].map((stat) => (
-              <div key={stat.label} className="text-center p-4 sm:p-6 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl border border-gray-100 dark:border-gray-700">
-                <div className={`text-2xl sm:text-3xl lg:text-4xl font-bold ${stat.color} mb-1 sm:mb-2`}>
-                  {stat.count}
-                </div>
-                <div className="text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </div>
   );
-};
-
-export default TechnicalExpertise;
+}

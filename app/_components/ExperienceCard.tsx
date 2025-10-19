@@ -89,20 +89,6 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
             </div>
           </div>
         )}
-
-        {/* Project Images Section */}
-        {/* {images.length > 0 && (
-          <div className="px-4 sm:px-6 lg:px-8 pb-6 sm:pb-8">
-            <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">Project Gallery</h2>
-            <ImageCarousel 
-              images={images}
-              autoPlay={true}
-              autoPlayInterval={5000}
-              showThumbnails={true}
-            />
-          </div>
-        )} */}
-
         {/* Achievements Section */}
         <div className="px-4 sm:px-6 lg:px-8 pb-6 sm:pb-8">
           <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">Key Achievements & Responsibilities</h2>

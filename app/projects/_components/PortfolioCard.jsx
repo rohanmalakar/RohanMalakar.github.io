@@ -1,10 +1,6 @@
-"use client";
 import { motion } from 'framer-motion';
 
 export const PortfolioCard = ({ item, index }) => {
-
-  console.log(item);
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}

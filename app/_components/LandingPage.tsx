@@ -1,7 +1,6 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useTheme } from './ThemeProvider';
 import {  
   Download,
   Sparkles,
@@ -12,7 +11,6 @@ import TextType from './UI/TextType';
 import GradientText from './UI/GradientText';
 
 const LandingPage: React.FC = () => {
-  const {isDarkMode} = useTheme();
   const router = useRouter();
 
   const roles = [
@@ -20,27 +18,6 @@ const LandingPage: React.FC = () => {
     "Competitive Programmer", 
     "AI Enthusiast"
   ];
-
-
-
-
-  // Theme-based classes
-  const themeClasses = {
-    background: 'bg-transparent',
-    text: {
-      primary: isDarkMode ? 'text-white' : 'text-gray-900',
-      secondary: isDarkMode ? 'text-gray-200' : 'text-gray-600',
-      muted: isDarkMode ? 'text-gray-300' : 'text-gray-500'
-    },
-    card: {
-      background: isDarkMode 
-        ? 'bg-slate-800/50 backdrop-blur-lg border-slate-700/50' 
-        : 'bg-white/80 backdrop-blur-lg border-gray-200/50',
-      hover: isDarkMode 
-        ? 'hover:bg-slate-800/70' 
-        : 'hover:bg-white/90'
-    }
-  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -67,7 +44,7 @@ const LandingPage: React.FC = () => {
 
 
   return (
-    <div className={`min-h-screen ${themeClasses.background} pt-5 relative overflow-hidden transition-all duration-1000`}>
+    <div className="min-h-screen bg-transparent pt-5 relative overflow-hidden transition-all duration-1000">
       {/* Main Content */}
       <div className="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -89,11 +66,11 @@ const LandingPage: React.FC = () => {
                 ease: "easeInOut"
               }}
             >
-              <Sparkles className={`w-6 h-6 ${isDarkMode ? 'text-blue-400' : 'text-purple-600'}`} />
-              <span className={`text-lg font-medium ${themeClasses.text.secondary}`}>
+              <Sparkles className="w-6 h-6 text-purple-600 dark:text-blue-400" />
+              <span className="text-lg font-medium text-gray-600 dark:text-gray-200">
                 Welcome to my digital world
               </span>
-              <Sparkles className={`w-6 h-6 ${isDarkMode ? 'text-blue-400' : 'text-purple-600'}`} />
+              <Sparkles className="w-6 h-6 text-purple-600 dark:text-blue-400" />
             </motion.div>
           </motion.div>
 
@@ -120,7 +97,7 @@ const LandingPage: React.FC = () => {
           {/* Description */}
           <motion.p 
             variants={itemVariants}
-            className={`text-xl lg:text-2xl ${themeClasses.text.secondary} max-w-4xl mx-auto leading-relaxed mb-8 lg:mb-12`}
+            className="text-xl lg:text-2xl text-gray-600 dark:text-gray-200 max-w-4xl mx-auto leading-relaxed mb-8 lg:mb-12"
           >
             Passionate about crafting exceptional digital experiences, solving complex problems,
             and exploring the frontiers of artificial intelligence. Let&apos;s build something amazing together!
@@ -132,11 +109,7 @@ const LandingPage: React.FC = () => {
             className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
           >
             <motion.button
-              className={`group relative px-8 py-4 bg-gradient-to-r ${
-                isDarkMode 
-                  ? 'from-blue-600 to-purple-600' 
-                  : 'from-purple-600 to-blue-600'
-              } text-white font-bold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300`}
+              className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 dark:from-blue-600 dark:to-purple-600 text-white font-bold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => {
@@ -150,11 +123,7 @@ const LandingPage: React.FC = () => {
             </motion.button>
 
             <motion.button
-              className={`group px-8 py-4 border-2 ${
-                isDarkMode 
-                  ? 'border-slate-700/50 text-gray-200 hover:border-slate-600/50 hover:bg-slate-800/50' 
-                  : 'border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50'
-              } font-semibold rounded-full transition-all duration-300`}
+              className="group px-8 py-4 border-2 border-gray-300 dark:border-slate-700/50 text-gray-700 dark:text-gray-200 hover:border-gray-400 dark:hover:border-slate-600/50 hover:bg-gray-50 dark:hover:bg-slate-800/50 font-semibold rounded-full transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

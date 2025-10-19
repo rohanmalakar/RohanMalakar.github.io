@@ -1,6 +1,3 @@
-"use client";
-import { useState } from 'react';
-
 export const FilterTabs = ({ filters, activeFilter, onFilterChange }) => {
   return (
     <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-4 mb-8 sm:mb-10 md:mb-12">
