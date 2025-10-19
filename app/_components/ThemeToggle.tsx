@@ -2,8 +2,20 @@
 
 import React, { useEffect, useState } from 'react';
 import { Moon, Sun } from 'lucide-react';
-import { toggleTheme } from './ThemeProvider';
 import { motion } from 'framer-motion';
+
+// Utility function to toggle theme
+const toggleTheme = () => {
+  const isDark = document.documentElement.classList.contains('dark');
+  
+  if (isDark) {
+    document.documentElement.classList.remove('dark');
+    localStorage.setItem('theme', 'light');
+  } else {
+    document.documentElement.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
+  }
+};
 
 const ThemeToggle: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -21,7 +33,7 @@ const ThemeToggle: React.FC = () => {
   return (
     <motion.button
       onClick={handleToggle}
-      className="fixed top-6 right-6 z-50 p-3 rounded-full bg-purple-600 text-white dark:bg-yellow-500 dark:text-gray-900 shadow-lg hover:shadow-xl transition-all duration-300"
+      className="z-50 p-2 rounded-full bg-purple-600 text-white dark:bg-yellow-500 dark:text-gray-900 shadow-lg hover:shadow-xl transition-all duration-300"
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
       initial={{ opacity: 0, scale: 0 }}

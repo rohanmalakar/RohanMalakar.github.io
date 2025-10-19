@@ -2,25 +2,14 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useRouter, usePathname } from 'next/navigation';
-import { toggleTheme } from './ThemeProvider';
+import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
-
-  // useEffect(() => {
-  //   // Initialize state from DOM
-  //   setIsDarkMode(document.documentElement.classList.contains('dark'));
-  // }, []);
-
-  const handleToggleTheme = () => {
-    toggleTheme();
-    setIsDarkMode(!isDarkMode);
-  };
 
   const navItems = [
     { name: 'Home', path: '/' },
@@ -98,22 +87,7 @@ const Navbar = () => {
           {/* Dark mode toggle and Mobile menu button */}
           <div className="flex items-center space-x-4">
             {/* Dark Mode Toggle */}
-            <motion.button
-              onClick={handleToggleTheme}
-              className="z-50 p-2 rounded-full bg-purple-600 text-white dark:bg-yellow-500 dark:text-gray-900 shadow-lg hover:shadow-xl transition-all duration-300"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.5 }}
-            >
-              <motion.div
-                animate={{ rotate: isDarkMode ? 0 : 180 }}
-                transition={{ duration: 0.5 }}
-              >
-                {isDarkMode ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
-              </motion.div>
-            </motion.button>
+            <ThemeToggle />
 
             {/* Mobile menu button */}
             <div className="md:hidden">

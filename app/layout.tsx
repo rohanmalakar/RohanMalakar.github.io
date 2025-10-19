@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Poppins, JetBrains_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "./_components/ThemeProvider";
 import Navbar from "./_components/Navbar";
 import Footer from "@/app/_components/Footer"
 
@@ -64,13 +63,11 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${poppins.variable} ${jetbrainsMono.variable} ${playfairDisplay.variable} antialiased`}
       >
-        <ThemeProvider>
-          <Navbar />
-          <main className="pt-16">
-            {children}
-          </main>
-          <Footer />
-        </ThemeProvider>
+        <Navbar />
+        <main className="pt-16">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );
