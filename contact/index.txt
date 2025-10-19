@@ -1,0 +1,32 @@
+1:"$Sreact.fragment"
+2:I[9659,["696","static/chunks/696-5634888e8b342c05.js","620","static/chunks/620-c488398ece886fc9.js","177","static/chunks/app/layout-d2d9f99b2e1c63c1.js"],"ThemeProvider"]
+3:I[6975,["696","static/chunks/696-5634888e8b342c05.js","620","static/chunks/620-c488398ece886fc9.js","177","static/chunks/app/layout-d2d9f99b2e1c63c1.js"],"default"]
+4:I[9766,[],""]
+5:I[8924,[],""]
+6:I[6024,["696","static/chunks/696-5634888e8b342c05.js","620","static/chunks/620-c488398ece886fc9.js","177","static/chunks/app/layout-d2d9f99b2e1c63c1.js"],"default"]
+7:I[6825,["696","static/chunks/696-5634888e8b342c05.js","248","static/chunks/248-4407d7b0ac637c54.js","977","static/chunks/app/contact/page-77cb6f29b5011406.js"],"AnimatedBackground"]
+8:I[8974,["696","static/chunks/696-5634888e8b342c05.js","248","static/chunks/248-4407d7b0ac637c54.js","977","static/chunks/app/contact/page-77cb6f29b5011406.js"],"AnimatedHeader"]
+9:I[3514,["696","static/chunks/696-5634888e8b342c05.js","248","static/chunks/248-4407d7b0ac637c54.js","977","static/chunks/app/contact/page-77cb6f29b5011406.js"],"ContactInfo"]
+a:I[8912,["696","static/chunks/696-5634888e8b342c05.js","248","static/chunks/248-4407d7b0ac637c54.js","977","static/chunks/app/contact/page-77cb6f29b5011406.js"],"ContactForm"]
+b:I[4431,[],"OutletBoundary"]
+d:I[5278,[],"AsyncMetadataOutlet"]
+f:I[9797,["696","static/chunks/696-5634888e8b342c05.js","209","static/chunks/app/loading-b8c8ddca5fb22bf8.js"],"default"]
+10:I[4431,[],"ViewportBoundary"]
+12:I[4431,[],"MetadataBoundary"]
+13:"$Sreact.suspense"
+15:I[7150,[],""]
+:HL["/_next/static/media/0484562807a97172-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/4c285fdca692ea22-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/8888a3826f4a3af4-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/b957ea75a84b6ea7-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/bb3ef058b751a6ad-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/eaead17c7dbfcd5d-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/eafabf029ad39a43-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/94bbcb8460accdc4.css","style"]
+0:{"P":null,"b":"57HUnzPSsIHzb_2mbRI7p","p":"","c":["","contact",""],"i":false,"f":[[["",{"children":["contact",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/94bbcb8460accdc4.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"className":"__variable_f367f3 __variable_51684b __variable_3c557b __variable_0a80b4 antialiased","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","main",null,{"className":"pt-16","children":["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","$L6",null,{}]]}]}]}]]}],{"children":["contact",["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":[["$","div",null,{"className":"min-h-screen bg-gray-100 dark:bg-black text-gray-900 dark:text-gray-100 font-sans transition-colors duration-500 overflow-hidden relative","children":[["$","$L7",null,{}],["$","div",null,{"className":"container mx-auto px-4 py-16 z-10 relative","children":[["$","$L8",null,{}],["$","div",null,{"className":"grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16","children":[["$","$L9",null,{}],["$","$La",null,{}]]}]]}]]}],null,["$","$Lb",null,{"children":["$Lc",["$","$Ld",null,{"promise":"$@e"}]]}]]}],{},null,false]},null,false]},[["$","$Lf","l",{}],[],[]],false],["$","$1","h",{"children":[null,[["$","$L10",null,{"children":"$L11"}],["$","meta",null,{"name":"next-size-adjust","content":""}]],["$","$L12",null,{"children":["$","div",null,{"hidden":true,"children":["$","$13",null,{"fallback":null,"children":"$L14"}]}]}]]}],false]],"m":"$undefined","G":["$15",[]],"s":false,"S":true}
+11:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+c:null
+16:I[622,[],"IconMark"]
+e:{"metadata":[["$","title","0",{"children":"Portfolio"}],["$","meta","1",{"name":"description","content":"Professional portfolio showcasing experience and skills"}],["$","link","2",{"rel":"icon","href":"/favicon.ico","type":"image/x-icon","sizes":"16x16"}],["$","$L16","3",{}]],"error":null,"digest":"$undefined"}
+14:"$e:metadata"
