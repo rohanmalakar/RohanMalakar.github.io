@@ -20,6 +20,7 @@ import {
   Network,
   TrendingUp
 } from 'lucide-react';
+import DotGrid from '../_components/UI/DottedBackground';
 
 interface Skill {
   name: string;
@@ -171,10 +172,24 @@ const getCategoryDotColor = (title: string) => {
 
 export default function TechnicalExpertise() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-slate-900 p-4 sm:p-6 lg:p-8">
+    <div className="min-h-screen bg-white dark:bg-black p-4 sm:p-6 lg:p-8">
       <div className="max-w-7xl mx-auto">
+
+        <div className="fixed inset-0 z-0">
+          <DotGrid
+            dotSize={3}
+            gap={20}
+            baseColor="#A18A87"
+            activeColor="#1707ED"
+            proximity={80}
+            shockRadius={250}
+            shockStrength={2}
+            resistance={1200}
+            returnDuration={2}
+          />
+        </div>
         {/* Header */}
-        <div className="mb-8 sm:mb-12">
+        <div className="mb-8 relative z-10 sm:mb-12">
           <div className="flex items-center gap-4 mb-6">
             <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-2xl">
               <Wrench className="w-8 h-8 text-blue-600 dark:text-blue-400" />
@@ -186,7 +201,7 @@ export default function TechnicalExpertise() {
         </div>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid relative z-10 grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
           {skillsData.map((category, categoryIndex) => (
             <div
               key={category.title}
@@ -238,7 +253,7 @@ export default function TechnicalExpertise() {
         </div>
 
         {/* Core Subjects Section */}
-        <div className="mt-12 sm:mt-16">
+        <div className="mt-12 relative z-10 sm:mt-16">
           <div className="mb-8 sm:mb-12">
             <div className="flex items-center gap-4 mb-6">
               <div className="p-3 bg-orange-100 dark:bg-orange-900/30 rounded-2xl">

@@ -22,7 +22,7 @@ export default function Experience() {
       {/* Main Content */}
       <div className="relative z-10 max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 md:mb-8 leading-tight">
+          <h1 className="text-3xl sm:text-4xl dark:text-white md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 md:mb-8 leading-tight">
             Professional Experience
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 font-light max-w-2xl mx-auto">

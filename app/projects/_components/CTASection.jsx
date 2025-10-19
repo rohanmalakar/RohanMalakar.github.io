@@ -15,7 +15,7 @@ export const CTASection = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.8 }}
-      className="text-center mt-16 sm:mt-20 md:mt-24 lg:mt-32 mb-12 sm:mb-16 md:mb-20"
+      className="text-center relative z-20 mt-16 sm:mt-20 md:mt-24 lg:mt-32 mb-12 sm:mb-16 md:mb-20"
     >
       <p className="text-emerald-400 text-xs sm:text-sm mb-2 sm:mb-4 tracking-wider">
         ✨ Ready to work ✨

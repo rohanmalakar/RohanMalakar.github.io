@@ -1,13 +1,14 @@
 "use client";
 import { motion } from 'framer-motion';
 
-export const PortfolioCard = ({ item, index }) => {
+export const PortfolioCard = ({ item, index, onClick }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="relative group p-2 sm:p-3 md:p-4 cursor-pointer"
+      onClick={() => onClick(item)}
     >
       <div
         className={`rounded-2xl  sm:rounded-3xl p-3 sm:p-4 md:p-5 overflow-hidden transition-all duration-500 ${
