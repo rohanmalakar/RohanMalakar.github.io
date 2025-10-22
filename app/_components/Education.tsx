@@ -151,40 +151,6 @@ const Education: React.FC = () => {
             </div>
           ))}
         </div>
-
-        {/* Timeline View for Mobile */}
-        <div className="lg:hidden space-y-8">
-          {educationData.map((item, index) => (
-            <div key={item.id} className="relative pl-8">
-              {/* Timeline Line */}
-              {index < educationData.length - 1 && (
-                <div className="absolute left-3 top-12 bottom-0 w-0.5 bg-gradient-to-b from-indigo-400 to-purple-400"></div>
-              )}
-              
-              {/* Timeline Dot */}
-              <div className={`absolute left-0 top-4 w-6 h-6 rounded-full bg-gradient-to-r ${item.bgColor} dark:bg-opacity-30 border-4 ${item.borderColor} dark:border-opacity-50 shadow-lg`}></div>
-              
-              <div className="bg-slate-800/50 dark:bg-slate-900/50 backdrop-blur-sm rounded-2xl shadow-lg p-6 border-l-4 border-indigo-500 dark:border-indigo-400">
-                <div className="flex items-start justify-between mb-3">
-                  <div>
-                    <h3 className="text-xl font-bold text-white dark:text-gray-100">{item.level}</h3>
-                    <p className="text-sm text-gray-300 dark:text-gray-400">{item.year}</p>
-                  </div>
-                  <div className={`${item.color}`}>
-                    {item.icon}
-                  </div>
-                </div>
-                <h4 className="font-semibold text-gray-200 dark:text-gray-300 mb-2">{item.degree}</h4>
-                <p className="text-sm text-gray-300 dark:text-gray-400 mb-3">{item.institution}</p>
-                {item.percentage && (
-                  <div className={`inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r ${item.bgColor} dark:bg-opacity-20 border ${item.borderColor} dark:border-opacity-50 font-bold ${item.color}`}>
-                    {item.percentage}
-                  </div>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </div>
   );
