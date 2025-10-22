@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, Award, BookOpen, Calendar, MapPin} from 'lucide-react';
+import { GraduationCap, Award, BookOpen, MapPin} from 'lucide-react';
 
 interface EducationItem {
   id: string;

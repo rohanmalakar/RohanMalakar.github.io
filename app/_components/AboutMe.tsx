@@ -54,13 +54,13 @@ const AboutMe: React.FC = () => {
                 <h2 className="text-3xl font-bold text-white mb-6">About Me</h2>
                 <div className="space-y-4 text-slate-300 leading-relaxed text-lg">
                   <p>
-                    I'm a <span className="font-semibold text-indigo-400">Full Stack Web Developer</span> with a deep passion for creating impactful digital experiences. My journey in web development has equipped me with expertise in both frontend and backend technologies, allowing me to build complete, scalable web applications from the ground up.
+                    I&apos;m a <span className="font-semibold text-indigo-400">Full Stack Web Developer</span> with a deep passion for creating impactful digital experiences. My journey in web development has equipped me with expertise in both frontend and backend technologies, allowing me to build complete, scalable web applications from the ground up.
                   </p>
                   <p>
-                    As an <span className="font-semibold text-purple-400">AI Enthusiast</span>, I'm fascinated by the potential of artificial intelligence to transform how we interact with technology. I constantly explore new AI tools and integrate intelligent features into my projects to create smarter, more intuitive applications.
+                    As an <span className="font-semibold text-purple-400">AI Enthusiast</span>, I&apos;m fascinated by the potential of artificial intelligence to transform how we interact with technology. I constantly explore new AI tools and integrate intelligent features into my projects to create smarter, more intuitive applications.
                   </p>
                   <p>
-                    Through my internship experiences as a <span className="font-semibold text-blue-400">MERN Stack Developer</span> and <span className="font-semibold text-pink-400">Full Stack Developer</span>, I've gained hands-on experience in developing real-world applications, collaborating with teams, and solving complex technical challenges.
+                    Through my internship experiences as a <span className="font-semibold text-blue-400">MERN Stack Developer</span> and <span className="font-semibold text-pink-400">Full Stack Developer</span>, I&apos;ve gained hands-on experience in developing real-world applications, collaborating with teams, and solving complex technical challenges.
                   </p>
                 </div>
 

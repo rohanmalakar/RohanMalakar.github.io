@@ -4,7 +4,6 @@ import Sahayak from "@/public/project-images/Sahayak.png";
 import MentorG from "@/public/project-images/Mentor-G.png";
 import Youthspire from "@/public/project-images/Youthspire.png";
 import Grammarly from "@/public/project-images/Grammarly.png";
-import LangBridge from "@/public/project-images/Lang-Bridge.png";
 import CodeReviewer from "@/public/project-images/CodeReviewer.png";
 import CodeScorer from "@/public/project-images/Code-Scorer.png";
 import Inky from "@/public/project-images/Inky.png";
