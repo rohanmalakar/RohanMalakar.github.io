@@ -1,7 +1,5 @@
-"use client";
-import React, { useState, useEffect } from 'react';
-import { motion, useAnimation } from 'framer-motion';
-import { GraduationCap, Award, BookOpen, Calendar, MapPin, Star, ArrowDown, Route } from 'lucide-react';
+import React from 'react';
+import { GraduationCap, Award, BookOpen, Calendar, MapPin} from 'lucide-react';
 
 interface EducationItem {
   id: string;
@@ -11,31 +9,31 @@ interface EducationItem {
   location: string;
   year: string;
   percentage?: string;
-  grade?: string;
   icon: React.ReactNode;
   color: string;
-  bgGradient: string;
+  bgColor: string;
+  borderColor: string;
   description: string;
+  highlights: string[];
 }
 
 const Education: React.FC = () => {
-  const [currentStep, setCurrentStep] = useState(0);
-  const [journeyStarted, setJourneyStarted] = useState(false);
-  const controls = useAnimation();
 
   const educationData: EducationItem[] = [
-    {
+     {
       id: '1',
-      level: '10th Grade',
-      degree: 'High Secondary Education',
-      institution: 'Govt H. Secondary School',
-      location: 'Piplia Buzurg (M.P.)',
-      year: '2018 - 2019',
-      percentage: '94.8%',
-      icon: <Award className="w-6 h-6" />,
-      color: 'text-green-600',
-      bgGradient: 'from-green-500 to-emerald-500',
-      description: 'The foundation of my academic journey began here'
+      level: 'Graduation',
+      degree: 'Bachelor of Technology (B.Tech)',
+      institution: 'Madhav Institute of Technology and Science',
+      location: 'Gwalior, Madhya Pradesh',
+      year: '2022 - 2026',
+      percentage: '7.98 CGPA',
+      icon: <GraduationCap className="w-8 h-8" />,
+      color: 'text-purple-600',
+      bgColor: 'bg-[000000]',
+      borderColor: 'border-purple-200',
+      description: 'Advanced studies and professional preparation',
+      highlights: ['Technical Skills', 'Industry Ready', 'Innovation']
     },
     {
       id: '2',
@@ -45,335 +43,149 @@ const Education: React.FC = () => {
       location: 'Piplia Buzurg (M.P.)',
       year: '2020 - 2021',
       percentage: '95%',
-      icon: <BookOpen className="w-6 h-6" />,
+      icon: <BookOpen className="w-8 h-8" />,
       color: 'text-blue-600',
-      bgGradient: 'from-blue-500 to-cyan-500',
-      description: 'Specialized learning and career path selection'
+      bgColor: 'bg-[000000]',
+      borderColor: 'border-blue-200',
+      description: 'Specialized learning and career path selection',
+      highlights: ['Career Focus', 'Advanced Studies', 'Goal Setting']
     },
-    {
+   {
       id: '3',
-      level: 'Graduation',
-      degree: 'Bachelor of Technology (B.Tech)',
-      institution: 'Madhav Institute of Technology and Science',
-      location: 'Gwalior, Madhya Pradesh',
-      year: '2022 - 2026',
-      percentage: '7.97 CGPA',
-      icon: <GraduationCap className="w-6 h-6" />,
-      color: 'text-purple-600',
-      bgGradient: 'from-purple-500 to-pink-500',
-      description: 'Advanced studies and professional preparation'
-    }
+      level: '10th Grade',
+      degree: 'High Secondary Education',
+      institution: 'Govt H. Secondary School',
+      location: 'Piplia Buzurg (M.P.)',
+      year: '2018 - 2019',
+      percentage: '94.8%',
+      icon: <Award className="w-8 h-8" />,
+      color: 'text-green-600',
+      bgColor: 'bg-[000000]',
+      borderColor: 'border-green-200',
+      description: 'The foundation of my academic journey began here',
+      highlights: ['Strong Foundation', 'Academic Excellence', 'First Milestone']
+    },
   ];
 
-  useEffect(() => {
-    if (journeyStarted) {
-      const timer = setInterval(() => {
-        setCurrentStep((prev) => {
-          if (prev < educationData.length - 1) {
-            return prev + 1;
-          } else {
-            clearInterval(timer);
-            return prev;
-          }
-        });
-      }, 2000);
-
-      return () => clearInterval(timer);
-    }
-  }, [journeyStarted, educationData.length]);
-
-  const startJourney = () => {
-    setJourneyStarted(true);
-    controls.start('visible');
-  };
-
-  const pathVariants = {
-    hidden: { pathLength: 0, opacity: 0 },
-    visible: {
-      pathLength: 1,
-      opacity: 1,
-      transition: {
-        duration: 3,
-        ease: "easeInOut" as const
-      }
-    }
-  };
-
-  const cardVariants = {
-    hidden: { 
-      opacity: 0, 
-      scale: 0.3,
-      y: 50,
-      rotateY: 90
-    },
-    visible: (index: number) => ({
-      opacity: 1,
-      scale: 1,
-      y: 0,
-      rotateY: 0,
-      transition: {
-        delay: index * 2 + 0.5,
-        duration: 0.8,
-        type: "spring" as const,
-        stiffness: 100,
-        damping: 15
-      }
-    })
-  };
-
-  const floatingVariants = {
-    animate: {
-      y: [-10, 10, -10],
-      rotate: [0, 5, -5, 0],
-      transition: {
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut" as const
-      }
-    }
-  };
-
   return (
-    <div className={`min-h-screen transition-colors duration-300`}>
-      <motion.section className="bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-950 dark:to-slate-900 min-h-screen transition-colors duration-300">
-        <div className="max-w-6xl mx-auto px-5 relative z-10 py-20">
-          {/* Journey Header */}
-          <motion.div
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="text-center mb-16"
-          >
-            <motion.div
-              variants={floatingVariants}
-              animate="animate"
-              className="inline-block mb-6"
-            >
-              <Route className="w-16 h-16 text-blue-600 dark:text-blue-400 drop-shadow-lg" />
-            </motion.div>
-            
-            <h2 className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6">
-              My Educational
-              <span className="block bg-gradient-to-r from-purple-600 via-blue-500 to-pink-600 dark:from-blue-400 dark:via-purple-500 dark:to-indigo-600 bg-clip-text text-transparent">
-                Journey
-              </span>
-            </h2>
-            
-            <p className="text-xl text-gray-600 dark:text-gray-200 max-w-2xl mx-auto leading-relaxed mb-8">
-              Follow the path of knowledge and growth through each milestone
-            </p>
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
+      {/* Hero Section */}
+      
 
-            {!journeyStarted && (
-              <motion.button
-                onClick={startJourney}
-                className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <span className="relative z-10 flex items-center">
-                  Start the Journey
-                  <ArrowDown className="ml-2 w-5 h-5 group-hover:animate-bounce" />
-                </span>
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full"
-                  initial={{ scale: 0 }}
-                  whileHover={{ scale: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
-              </motion.button>
-            )}
-          </motion.div>
-
-          {/* Journey Path */}
-          {journeyStarted && (
-            <div className="relative">
-              {/* Animated SVG Path */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-full h-full pointer-events-none">
-                <svg className="w-full h-full" viewBox="0 0 400 800">
-                  <motion.path
-                    d="M200 50 Q150 200 200 350 Q250 500 200 650 Q150 750 200 800"
-                    stroke="url(#gradient)"
-                    strokeWidth="4"
-                    fill="none"
-                    variants={pathVariants}
-                    initial="hidden"
-                    animate={controls}
-                    className="drop-shadow-lg"
-                  />
-                  <defs>
-                    <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" stopColor="#10B981" />
-                      <stop offset="50%" stopColor="#3B82F6" />
-                      <stop offset="100%" stopColor="#8B5CF6" />
-                    </linearGradient>
-                  </defs>
-                </svg>
-              </div>
-
-              {/* Education Cards */}
-              <div className="relative space-y-10">
-                {educationData.map((item, index) => (
-                  <motion.div
-                    key={item.id}
-                    custom={index}
-                    variants={cardVariants}
-                    initial="hidden"
-                    animate={journeyStarted ? "visible" : "hidden"}
-                    className={`relative ${
-                      index % 2 === 0 ? 'lg:pr-1/2' : 'lg:pl-1/2 lg:ml-auto'
-                    }`}
-                  >
-                    {/* Journey Marker */}
-                    <motion.div
-                      className={`absolute ${
-                        index % 2 === 0 ? 'lg:right-0 lg:translate-x-1/2' : 'lg:left-0 lg:-translate-x-1/2'
-                      } top-1/2 right-0 lg:left-auto transform -translate-y-1/2 ${
-                        index % 2 === 0 ? 'lg:-translate-x-1/2' : ''
-                      } w-12 h-12 rounded-full bg-gradient-to-r ${item.bgGradient} flex items-center justify-center shadow-2xl z-20 text-white`}
-                      initial={{ scale: 0 }}
-                      animate={currentStep >= index ? { scale: 1 } : { scale: 0 }}
-                      transition={{ delay: index * 2 + 1, duration: 0.5, type: "spring" }}
-                    >
-                      <motion.div
-                        animate={currentStep >= index ? { rotate: 360 } : {}}
-                        transition={{ duration: 1, delay: index * 2 + 1.5 }}
-                      >
-                        {item.icon}
-                      </motion.div>
-                    </motion.div>
-
-                    {/* Education Card */}
-                    <motion.div
-                      className={`relative bg-white/80 dark:bg-slate-800/50 backdrop-blur-lg border border-gray-200/50 dark:border-slate-700/50 rounded-3xl p-8 shadow-2xl shadow-gray-900/10 dark:shadow-slate-900/50 transition-all duration-500 ${
-                        index % 2 === 0 ? 'lg:mr-16' : 'lg:ml-16'
-                      }`}
-                      whileHover={{ 
-                        y: -10, 
-                        scale: 1.02,
-                        boxShadow: "0 25px 50px -12px rgba(139, 92, 246, 0.3)"
-                      }}
-                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    >
-                      {/* Glowing Border Effect */}
-                      <motion.div
-                        className={`absolute inset-0 rounded-3xl bg-gradient-to-r ${item.bgGradient} opacity-10 dark:opacity-20 -z-10`}
-                        animate={{
-                          opacity: [0.1, 0.2, 0.1],
-                        }}
-                        transition={{
-                          duration: 3,
-                          repeat: Infinity,
-                          delay: index * 0.5
-                        }}
-                      />
-
-                      {/* Floating Icons */}
-                      <motion.div
-                        className="absolute -top-4 -right-4"
-                        animate={{
-                          y: [-5, 5, -5],
-                          rotate: [0, 180, 360],
-                        }}
-                        transition={{
-                          duration: 4,
-                          repeat: Infinity,
-                          delay: index * 0.7
-                        }}
-                      >
-                        <Star className="w-8 h-8 text-orange-500 dark:text-blue-400 drop-shadow-lg" />
-                      </motion.div>
-
-                      {/* Content */}
-                      <div className="relative z-10">
-                        <motion.div
-                          initial={{ opacity: 0 }}
-                          animate={currentStep >= index ? { opacity: 1 } : { opacity: 0 }}
-                          transition={{ delay: index * 2 + 2, duration: 0.8 }}
-                        >
-                          <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">{item.level}</h3>
-                          <h4 className="text-xl font-semibold text-gray-600 dark:text-gray-200 mb-4">{item.degree}</h4>
-                          <p className="text-gray-500 dark:text-gray-300 mb-6 italic">{item.description}</p>
-                          
-                          <div className="space-y-4">
-                            <motion.div 
-                              className="flex items-center text-gray-600 dark:text-gray-200"
-                              initial={{ x: -20, opacity: 0 }}
-                              animate={currentStep >= index ? { x: 0, opacity: 1 } : {}}
-                              transition={{ delay: index * 2 + 2.2, duration: 0.5 }}
-                            >
-                              <BookOpen className="w-5 h-5 mr-3 text-gray-500 dark:text-gray-400" />
-                              <span className="font-medium">{item.institution}</span>
-                            </motion.div>
-                            
-                            <motion.div 
-                              className="flex items-center text-gray-600 dark:text-gray-200"
-                              initial={{ x: -20, opacity: 0 }}
-                              animate={currentStep >= index ? { x: 0, opacity: 1 } : {}}
-                              transition={{ delay: index * 2 + 2.4, duration: 0.5 }}
-                            >
-                              <MapPin className="w-5 h-5 mr-3 text-gray-500 dark:text-gray-400" />
-                              <span>{item.location}</span>
-                            </motion.div>
-                            
-                            <motion.div 
-                              className="flex items-center text-gray-600 dark:text-gray-200"
-                              initial={{ x: -20, opacity: 0 }}
-                              animate={currentStep >= index ? { x: 0, opacity: 1 } : {}}
-                              transition={{ delay: index * 2 + 2.6, duration: 0.5 }}
-                            >
-                              <Calendar className="w-5 h-5 mr-3 text-gray-500 dark:text-gray-400" />
-                              <span>{item.year}</span>
-                            </motion.div>
-                          </div>
-
-                          {/* Achievement Badge */}
-                          {item.percentage && (
-                            <motion.div
-                              className="mt-6"
-                              initial={{ scale: 0 }}
-                              animate={currentStep >= index ? { scale: 1 } : { scale: 0 }}
-                              transition={{ delay: index * 2 + 3, duration: 0.5, type: "spring" }}
-                            >
-                              <div className={`inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r ${item.bgGradient} text-white font-bold text-lg shadow-xl`}>
-                                <Award className="w-5 h-5 mr-2" />
-                                {item.percentage}
-                              </div>
-                            </motion.div>
-                          )}
-                        </motion.div>
-                      </div>
-                    </motion.div>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Journey Completion */}
-              <motion.div
-                className="text-center mt-20"
-                initial={{ opacity: 0, y: 50 }}
-                animate={currentStep >= educationData.length - 1 ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: (educationData.length - 1) * 2 + 4, duration: 1 }}
-              >
-                <motion.div
-                  className="inline-flex items-center space-x-4 text-gray-900 dark:text-white text-2xl font-bold"
-                  animate={{
-                    scale: [1, 1.1, 1],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    delay: (educationData.length - 1) * 2 + 5
-                  }}
-                >
-                  <GraduationCap className="w-8 h-8" />
-                  <span>Journey Complete!</span>
-                  <GraduationCap className="w-8 h-8" />
-                </motion.div>
-              </motion.div>
-            </div>
-          )}
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+        {/* Education Cards Grid */}
+        <div className=" text-white py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto text-center">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full mb-6">
+            <GraduationCap className="w-10 h-10" />
+          </div>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
+            Education
+          </h1>
+          <p className="text-xl text-white/90 max-w-2xl mx-auto">
+            A journey of continuous learning and academic excellence
+          </p>
         </div>
-      </motion.section>
+      </div>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+          {educationData.map((item, index) => (
+            <div
+              key={item.id}
+              className="relative bg-slate-800/50 dark:bg-slate-900/50 backdrop-blur-sm rounded-3xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-slate-700/50 dark:border-slate-600/50"
+            >
+              {/* Header with Icon */}
+              <div className={`${item.bgColor} dark:bg-opacity-20 p-6 relative overflow-hidden`}>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 dark:bg-white/5 rounded-full -mr-16 -mt-16"></div>
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 dark:bg-white/5 rounded-full -ml-12 -mb-12"></div>
+                <div className={`${item.color} mb-4 relative z-10`}>
+                  {item.icon}
+                </div>
+                <h3 className="text-2xl font-bold text-white dark:text-gray-100 mb-1 relative z-10">{item.level}</h3>
+                <div className={`inline-flex items-center px-3 py-1 rounded-full ${item.bgColor} dark:bg-opacity-30 ${item.color} text-sm font-semibold border ${item.borderColor} dark:border-opacity-50 relative z-10`}>
+                  {item.year}
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-6">
+                <h4 className="text-lg font-bold text-white dark:text-gray-100 mb-3">{item.degree}</h4>
+                <p className="text-gray-300 dark:text-gray-400 text-sm mb-4 leading-relaxed">{item.description}</p>
+                
+                <div className="space-y-3 mb-4">
+                  <div className="flex items-start text-sm">
+                    <BookOpen className="w-4 h-4 text-gray-400 dark:text-gray-500 mr-2 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-300 dark:text-gray-400">{item.institution}</span>
+                  </div>
+                  <div className="flex items-start text-sm">
+                    <MapPin className="w-4 h-4 text-gray-400 dark:text-gray-500 mr-2 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-300 dark:text-gray-400">{item.location}</span>
+                  </div>
+                </div>
+
+                {/* Highlights */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {item.highlights.map((highlight, idx) => (
+                    <span key={idx} className="px-3 py-1 bg-slate-700/50 dark:bg-slate-800/50 text-gray-300 dark:text-gray-400 text-xs rounded-full border border-slate-600/50">
+                      {highlight}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Score Badge */}
+                {item.percentage && (
+                  <div className={`flex items-center justify-between p-4 rounded-xl bg-gradient-to-r ${item.bgColor} dark:bg-opacity-20 border ${item.borderColor} dark:border-opacity-50`}>
+                    <div className="flex items-center">
+                      <Award className={`w-5 h-5 ${item.color} mr-2`} />
+                      <span className="text-sm font-semibold text-gray-300 dark:text-gray-400">Score</span>
+                    </div>
+                    <span className={`text-xl font-bold ${item.color}`}>{item.percentage}</span>
+                  </div>
+                )}
+              </div>
+
+              {/* Step Number */}
+              <div className="absolute top-4 right-4 w-10 h-10 bg-slate-700/80 dark:bg-slate-800/80 backdrop-blur-sm shadow-lg rounded-full flex items-center justify-center font-bold text-white dark:text-gray-200 text-lg border border-slate-600/50">
+                {index + 1}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Timeline View for Mobile */}
+        <div className="lg:hidden space-y-8">
+          {educationData.map((item, index) => (
+            <div key={item.id} className="relative pl-8">
+              {/* Timeline Line */}
+              {index < educationData.length - 1 && (
+                <div className="absolute left-3 top-12 bottom-0 w-0.5 bg-gradient-to-b from-indigo-400 to-purple-400"></div>
+              )}
+              
+              {/* Timeline Dot */}
+              <div className={`absolute left-0 top-4 w-6 h-6 rounded-full bg-gradient-to-r ${item.bgColor} dark:bg-opacity-30 border-4 ${item.borderColor} dark:border-opacity-50 shadow-lg`}></div>
+              
+              <div className="bg-slate-800/50 dark:bg-slate-900/50 backdrop-blur-sm rounded-2xl shadow-lg p-6 border-l-4 border-indigo-500 dark:border-indigo-400">
+                <div className="flex items-start justify-between mb-3">
+                  <div>
+                    <h3 className="text-xl font-bold text-white dark:text-gray-100">{item.level}</h3>
+                    <p className="text-sm text-gray-300 dark:text-gray-400">{item.year}</p>
+                  </div>
+                  <div className={`${item.color}`}>
+                    {item.icon}
+                  </div>
+                </div>
+                <h4 className="font-semibold text-gray-200 dark:text-gray-300 mb-2">{item.degree}</h4>
+                <p className="text-sm text-gray-300 dark:text-gray-400 mb-3">{item.institution}</p>
+                {item.percentage && (
+                  <div className={`inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r ${item.bgColor} dark:bg-opacity-20 border ${item.borderColor} dark:border-opacity-50 font-bold ${item.color}`}>
+                    {item.percentage}
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

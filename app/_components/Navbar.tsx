@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { useRouter, usePathname } from 'next/navigation';
-import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,9 +12,9 @@ const Navbar = () => {
 
   const navItems = [
     { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
     { name: 'Experience', path: '/experience' },
     { name: 'Projects', path: '/projects' },
-    { name: 'Skills', path: '/skills' },
     { name: 'Contact', path: '/contact' }
   ];
 
